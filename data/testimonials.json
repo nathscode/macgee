@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name":"Wellmann groups",
+        "profession": "Marine logistics",
+        "content": "Thank you for your excellent service.Your response to the quote and meeting schedule was quick and efficient."
+    },
+    {
+        "id": 2,
+        "name":"Ebenco ",
+        "profession": "Waste Management",
+        "content": "Good customer service and satisfied with my purchase"
+    },
+    {
+        "id": 3,
+        "name":"Sharpstone Construction ",
+        "profession": "Civil/construction",
+        "content": "Anyone that needs a heavy duty machine for construction work should definitely consider Macgee equipment. They are very reliable and extremely efficient. The entire staff, from management to office to service, is terrific."
+    },
+    {
+        "id": 4,
+        "name":"Evomec",
+        "profession": "Civil/construction",
+        "content": "We've been very satisfied with the brand they provided to us. They've come out to fix things and help us with things.We've been very impressed with the whole company. and the quality of the product."
+    },
+    {
+        "id": 5,
+        "name":"Reginalo R&N",
+        "profession": "Civil/construction",
+        "content": "We find them to be excellent."
+    },
+    {
+        "id": 6,
+        "name":"Rainoil",
+        "profession": "Oil and Gas",
+        "content": "I am happy with how they do business. They have just been great to work with"
+    }
+]

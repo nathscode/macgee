@@ -537,7 +537,8 @@ video {
       flex-direction: column !important;
       align-content: flex-start;
       padding: 0.8rem;
-      width: 100%; }
+      width: 100%;
+      height: 200px; }
       @media (min-width: 30em) {
         .works__list__item {
           width: 350px;
@@ -555,20 +556,15 @@ video {
         -webkit-align-items: center !important;
         -ms-flex-align: center !important;
         align-items: center !important;
-        margin-bottom: 1.5rem; }
+        height: 50px;
+        margin-bottom: 1rem; }
         .works__list__item--icon svg {
           position: relative;
-          height: 4.2rem !important;
-          width: 4.2rem !important;
+          height: 3.5rem !important;
+          width: 3.5rem !important;
           stroke-width: 0.3;
           vertical-align: middle;
           fill: #ff0026; }
-          .works__list__item--icon svg.reduce {
-            position: relative;
-            height: 3rem !important;
-            width: 3rem !important;
-            stroke-width: 0.3;
-            vertical-align: middle; }
       .works__list__item--text {
         display: -webkit-box;
         display: -webkit-flex;
@@ -1178,10 +1174,7 @@ video {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center !important;
-    -webkit-align-items: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
+    align-items: flex-start;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -1217,6 +1210,14 @@ video {
       @media (min-width: 30em) {
         .pager-body__content h2 {
           font-size: 2.5rem; } }
+    .pager-body__content h4 {
+      font-family: "Poppins", "Helvetica", "sans-serif";
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      font-size: 18px;
+      margin: 0;
+      color: #000; }
     .pager-body__content p {
       color: #5c6363;
       font-size: 0.9375rem;
@@ -1224,6 +1225,9 @@ video {
       font-weight: 400;
       margin-top: 0.5rem;
       margin-bottom: 0; }
+      .pager-body__content p.space {
+        margin-bottom: 20px;
+        margin-top: 0; }
     .pager-body__content__list {
       display: -webkit-box;
       display: -webkit-flex;
