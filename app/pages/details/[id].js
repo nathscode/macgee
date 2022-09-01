@@ -1,10 +1,22 @@
-function Details() {
+import { useState } from "react"
+import Image from "next/image"
+import machines from "../../data/machines.json"
+
+function Details({ machine }) {
+	const [main, setMain] = useState(machine.images[0])
+	const spec = []
+
+	for (const prop in machine.specification) {
+		spec.push({ type: prop, value: machine.specification[prop] })
+	}
+
+	console.log(spec)
 	return (
 		<section className='site-details'>
 			<div className='content-wrapper'>
 				<div className='site-details__header'>
 					<div className='site-details__header--title'>
-						<h1>1980 caterpillar 950C wheel loader</h1>
+						<h1>{machine.title}</h1>
 					</div>
 					<div className='site-details__header--action'>
 						<a href='/' className='site-button site-button-primary'>
@@ -14,23 +26,22 @@ function Details() {
 				</div>
 				<div className='site-details__inner'>
 					<div className='site-details__truck-wrapper'>
-						<div className='site-details__truck-wrapper__main-image'>
-							<img src='assets/images/trucks/1980-caterpillar/IMG_2821.jpg' alt='' />
+						<div style={{ position: "relative" }} className='site-details__truck-wrapper__main-image'>
+							<Image layout='fill' src={`/assets/images${main}`} alt='' />
 						</div>
 						<div className='site-details__truck-wrapper__small-image'>
-							<div>
-								<img src='assets/images/trucks/1980-caterpillar/IMG_2822.jpg' alt='' />
-							</div>
+							{machine.images.map((img) => (
+								<div style={{ cursor: "pointer", position: "relative" }} onClick={() => setMain(img)}>
+									<Image layout='fill' src={`/assets/images${img}`} alt='' />
+								</div>
+							))}
 						</div>
 					</div>
 					<div className='site-details__truck-content'>
 						<div className='site-details__truck-content__section'>
 							<div>
 								<h3>Description</h3>
-								<p>
-									2004 caterpillar 320CL Excavtor, equipped with 3066 engine, 32” wide track shoes, 75%
-									undercarriage, 10,000 hours, drainage bucket/ quick coupler, Hammerline
-								</p>
+								<p>{machine.description}</p>
 							</div>
 						</div>
 						<div className='site-details__truck-content__section'>
@@ -38,42 +49,12 @@ function Details() {
 								<h3>Specifications</h3>
 							</div>
 							<ul>
-								<li>
-									<span>Year</span>
-									<span>2004</span>
-								</li>
-								<li>
-									<span>Manufacturer</span>
-									<span>Caterpillar</span>
-								</li>
-								<li>
-									<span>Model</span>
-									<span>320CL</span>
-								</li>
-								<li>
-									<span>Serial Number</span>
-									<span>1997</span>
-								</li>
-								<li>
-									<span>Condition</span>
-									<span>Used</span>
-								</li>
-								<li>
-									<span>Hours</span>
-									<span>10,000</span>
-								</li>
-								<li>
-									<span>Bucket</span>
-									<span>1997</span>
-								</li>
-								<li>
-									<span>Exterior</span>
-									<span>Good</span>
-								</li>
-								<li>
-									<span>ROPS</span>
-									<span>Enclosed</span>
-								</li>
+								{spec.map(({ type, value }, i) => (
+									<li key={`${type}--${value}--${i}`}>
+										<span>{type}</span>
+										<span>{value}</span>
+									</li>
+								))}
 							</ul>
 						</div>
 						<div className='site-details__truck-content__section'>
@@ -123,3 +104,33 @@ function Details() {
 }
 
 export default Details
+
+export async function getServerSideProps(context) {
+	try {
+		const { params } = context
+		const { id } = params
+
+		const list = machines.filter((item) => item.id === Number(id))
+		const machine = list[0]
+
+		if (!machine) {
+			return {
+				notFound: true,
+			}
+		}
+
+		return {
+			props: {
+				machine,
+			},
+		}
+	} catch (error) {
+		console.log(error.message)
+		return {
+			redirect: {
+				destination: "/",
+				permanent: false,
+			},
+		}
+	}
+}

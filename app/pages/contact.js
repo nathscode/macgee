@@ -1,14 +1,37 @@
+import Head from "next/head"
+import Script from "next/script"
 import PageWrapper from "../components/layout/page-wrapper"
 
 function Contact() {
+	function drawMap() {
+		const lat = 5.5952
+		const lng = 5.8188
+
+		// Initialize locationPicker plugin
+		const map = L.map("map").setView([lat, lng], 13)
+
+		L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+			attribution: "macgee equipments",
+		}).addTo(map)
+
+		const layer = L.marker([lat, lng]).addTo(map)
+	}
 	return (
 		<PageWrapper page='Contact' path='/contact'>
+			<Head>
+				<link
+					rel='stylesheet'
+					href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'
+					integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=='
+					crossorigin=''
+				/>
+			</Head>
 			<div className='content-wrapper'>
 				<section className='pager-body'>
 					<div className='pager-body__inner'>
 						<div className='contact'>
-							<div className='contact__map'>
-								<p>Add map here</p>
+							<div id='map' className='contact__map'>
+								<p>Loading...</p>
 							</div>
 							<h4>Get in Touch</h4>
 							<div className='contact__inner'>
@@ -23,14 +46,7 @@ function Contact() {
 											</div>
 										</div>
 										<div className='full'>
-											<textarea
-												name
-												id
-												cols={30}
-												rows={10}
-												placeholder='Enter message'
-												defaultValue={""}
-											/>
+											<textarea name id cols={30} rows={10} placeholder='Enter message' />
 										</div>
 										<div>
 											<button type='submit' className='site-button site-button-primary'>
@@ -86,6 +102,12 @@ function Contact() {
 					</div>
 				</section>
 			</div>
+			<Script
+				src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'
+				integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=='
+				crossorigin=''
+				onLoad={drawMap}
+			/>
 		</PageWrapper>
 	)
 }
