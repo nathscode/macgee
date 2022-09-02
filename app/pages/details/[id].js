@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Image from "next/image"
 import machines from "../../data/machines.json"
+import { QuoteModalContext } from "../_app"
 
 function Details({ machine }) {
+	const { showModalWithProduct } = useContext(QuoteModalContext)
 	const [main, setMain] = useState(machine.images[0])
 	const spec = []
 
@@ -19,9 +21,11 @@ function Details({ machine }) {
 						<h1>{machine.title}</h1>
 					</div>
 					<div className='site-details__header--action'>
-						<a href='/' className='site-button site-button-primary'>
+						<button
+							onClick={() => showModalWithProduct(machine.id, machine.type, machine.title)}
+							className='site-button site-button-primary'>
 							Request Price
-						</a>
+						</button>
 					</div>
 				</div>
 				<div className='site-details__inner'>
@@ -66,9 +70,11 @@ function Details({ machine }) {
 										<p>Km 6, osubi-airport road, Warri, Delta state, Nigeria.</p>
 										<h4>Message</h4>
 										<div className='action-buttons'>
-											<a href='/' className='site-button site-button-primary'>
+											<button
+												onClick={() => showModalWithProduct(machine.id, machine.type, machine.title)}
+												className='site-button site-button-primary'>
 												Request Price
-											</a>
+											</button>
 											<a href='/' className='site-button site-button-chat'>
 												<svg
 													xmlns='http://www.w3.org/2000/svg'

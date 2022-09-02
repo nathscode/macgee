@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import PageWrapper from "../components/layout/page-wrapper"
 import machines from "../data/machines.json"
 import { fadeMoveInTop } from "../utils/animations"
+import { QuoteModalContext } from "../pages/_app"
 
 function Inventory() {
+	const { showModalWithProduct } = useContext(QuoteModalContext)
 	const [filter, setFilter] = useState("ALL")
 	const [displayedInventory, setDisplayedInventory] = useState([...machines])
 
@@ -47,7 +49,7 @@ function Inventory() {
 								key={inventory.id}
 								className='inventory__list__item'>
 								<div className='inventory__list__item--image'>
-									<Link href={`/nice`}>
+									<Link href={`/details/${inventory.id}`}>
 										<a>
 											<img src={`assets/images${inventory.images[0]}`} alt={inventory.title} />
 										</a>
@@ -65,9 +67,14 @@ function Inventory() {
 											<span>{inventory.specification.Manufacturer}</span>
 										</p>
 										<div>
-											<a href='#' className='quote-button'>
+											<button
+												onClick={() =>
+													showModalWithProduct(inventory.id, inventory.type, inventory.title)
+												}
+												style={{ cursor: "pointer" }}
+												className='quote-button'>
 												Get Quote
-											</a>
+											</button>
 										</div>
 									</div>
 									<ul className='inventory__meta'>

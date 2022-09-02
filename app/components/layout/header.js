@@ -1,6 +1,9 @@
 import Link from "next/link"
+import { useContext } from "react"
+import { QuoteModalContext } from "../../pages/_app"
 
 function Header() {
+	const { showModal } = useContext(QuoteModalContext)
 	return (
 		<header className='header'>
 			<div className='header__default'>
@@ -37,7 +40,7 @@ function Header() {
 								</div>
 							</div>
 							<div className='quote-button'>
-								<button type='button' className='site-button site-button-primary'>
+								<button onClick={showModal} className='site-button site-button-primary'>
 									Get a Quote
 								</button>
 							</div>

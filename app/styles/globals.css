@@ -1884,7 +1884,8 @@ video {
 	}
 }
 .contact__form-box textarea,
-.contact__form-box input {
+.contact__form-box input,
+.contact__form-box select {
 	display: inline-flex;
 	border: 1px solid #333;
 	border-radius: 0px;
@@ -2372,7 +2373,8 @@ video {
 	flex-wrap: wrap;
 	margin-top: 10px;
 }
-.site-details__truck-content__section ul li .action-buttons a {
+.site-details__truck-content__section ul li .action-buttons a,
+.site-details__truck-content__section ul li .action-buttons button {
 	margin-bottom: 20px;
 	width: 100%;
 }
@@ -2647,4 +2649,31 @@ a.site-button-call,
 	.content-wrapper {
 		max-width: 1200px;
 	}
+}
+
+.quote__modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	overflow-y: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(8px);
+}
+
+.quote__modal--close {
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.quote__modal--close:hover {
+	font-weight: bold;
+	transform: scale(1.07);
 }
