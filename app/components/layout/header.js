@@ -1,8 +1,10 @@
 import Link from "next/link"
-import { useContext } from "react"
+import { useContext, useState } from "react"
+import { animate, AnimatePresence, motion } from "framer-motion"
 import { QuoteModalContext } from "../../pages/_app"
 
 function Header() {
+	const [mNav, setMNav] = useState(false)
 	const { showModal } = useContext(QuoteModalContext)
 	return (
 		<header className='header'>
@@ -75,37 +77,45 @@ function Header() {
 						</ul>
 					</div>
 					<div className='hamburger'>
-						<button type='button'>
+						<button onClick={() => setMNav(!mNav)} style={{ cursor: "pointer" }} type='button'>
 							<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width={24} height={24}>
 								<path fill='none' d='M0 0h24v24H0z' />
 								<path d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z' />
 							</svg>
 						</button>
 					</div>
-					<div className='mobile-nav'>
-						<ul className='header__navigation__list'>
-							<li className='header__navigation__list__item'>
-								<Link href='/'>
-									<a className='header__navigation__list__item--link'>Home</a>
-								</Link>
-							</li>
-							<li className='header__navigation__list__item'>
-								<Link href='/inventory'>
-									<a className='header__navigation__list__item--link'>Inventory</a>
-								</Link>
-							</li>
-							<li className='header__navigation__list__item'>
-								<Link href='/about'>
-									<a className='header__navigation__list__item--link'>About Us</a>
-								</Link>
-							</li>
-							<li className='header__navigation__list__item'>
-								<Link href='/contact'>
-									<a className='header__navigation__list__item--link'>Contact Us</a>
-								</Link>
-							</li>
-						</ul>
-					</div>
+					<AnimatePresence>
+						{mNav && (
+							<motion.div
+								initial={{ height: 0, opacity: 0 }}
+								animate={{ height: "auto", opacity: 1 }}
+								exit={{ height: 0, opacity: 0 }}
+								className='mobile-nav'>
+								<ul className='header__navigation__list'>
+									<li className='header__navigation__list__item'>
+										<Link href='/'>
+											<a className='header__navigation__list__item--link'>Home</a>
+										</Link>
+									</li>
+									<li className='header__navigation__list__item'>
+										<Link href='/inventory'>
+											<a className='header__navigation__list__item--link'>Inventory</a>
+										</Link>
+									</li>
+									<li className='header__navigation__list__item'>
+										<Link href='/about'>
+											<a className='header__navigation__list__item--link'>About Us</a>
+										</Link>
+									</li>
+									<li className='header__navigation__list__item'>
+										<Link href='/contact'>
+											<a className='header__navigation__list__item--link'>Contact Us</a>
+										</Link>
+									</li>
+								</ul>
+							</motion.div>
+						)}
+					</AnimatePresence>
 				</div>
 			</nav>
 		</header>

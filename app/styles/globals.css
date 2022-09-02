@@ -390,7 +390,8 @@ video {
 	padding-bottom: 20px;
 	background-color: #111;
 	width: 100%;
-	display: none;
+	overflow-y: hidden;
+	/* display: none; */
 	-webkit-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
 	transition: all 0.4s ease;
