@@ -8,8 +8,6 @@ async function handler(req, res) {
 		try {
 			const { type, id, fullname, email, message } = req.body
 
-			console.log(req.body, "body")
-
 			if (!Number(id)) {
 				return res.status(401).json({ status: false, message: "Select a product" })
 			}
@@ -28,7 +26,7 @@ async function handler(req, res) {
 				return res.status(401).json({ status: false, message: "Invalid E-mail address" })
 			}
 
-			if (!validator.isEmpty(message) && validator.isAlphanumeric(message, "en-US", { ignore: /\s+/ })) {
+			if (!validator.isEmpty(message) && !validator.isAlphanumeric(message, "en-US", { ignore: " " })) {
 				return res.status(401).json({ status: false, message: "Invalid characters in message" })
 			}
 
