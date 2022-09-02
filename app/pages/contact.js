@@ -1,8 +1,14 @@
+import { useState } from "react"
 import Head from "next/head"
 import Script from "next/script"
+import { TailSpin } from "react-loader-spinner"
+import { toast } from "react-hot-toast"
 import PageWrapper from "../components/layout/page-wrapper"
 
 function Contact() {
+	const [data, setData] = useState({ fullname: "", email: "", message: "" })
+	const [isLoading, setIsLoading] = useState(false)
+
 	function drawMap() {
 		const lat = 5.5952
 		const lng = 5.8188
@@ -16,6 +22,35 @@ function Contact() {
 
 		const layer = L.marker([lat, lng]).addTo(map)
 	}
+
+	async function sendMessage(e) {
+		e.preventDefault()
+
+		try {
+			setIsLoading(true)
+			const response = await fetch("/api/send-message", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			})
+
+			const { status, message } = await response.json()
+
+			if (status === true) {
+				toast.success(message)
+				setData({ fullname: "", email: "", message: "" })
+				setIsLoading(false)
+			} else {
+				throw new Error(message)
+			}
+		} catch (error) {
+			setIsLoading(false)
+			toast.error(error.message)
+		}
+	}
+
 	return (
 		<PageWrapper page='Contact' path='/contact'>
 			<Head>
@@ -36,21 +71,47 @@ function Contact() {
 							<h4>Get in Touch</h4>
 							<div className='contact__inner'>
 								<div className='contact__form-box'>
-									<form action method='post'>
+									<form onSubmit={sendMessage} method='post'>
 										<div className='full'>
 											<div className='split-two'>
-												<input type='text' placeholder='Enter full name' />
+												<input
+													disabled={isLoading}
+													value={data.fullname}
+													onChange={(e) => setData({ ...data, fullname: e.target.value })}
+													type='text'
+													placeholder='Enter full name'
+												/>
 											</div>
 											<div className='split-two'>
-												<input type='text' placeholder='Enter email address' />
+												<input
+													disabled={isLoading}
+													value={data.email}
+													onChange={(e) => setData({ ...data, email: e.target.value })}
+													type='text'
+													placeholder='Enter email address'
+												/>
 											</div>
 										</div>
 										<div className='full'>
-											<textarea name id cols={30} rows={10} placeholder='Enter message' />
+											<textarea
+												disabled={isLoading}
+												value={data.message}
+												onChange={(e) => setData({ ...data, message: e.target.value })}
+												cols={30}
+												rows={10}
+												placeholder='Enter message'
+											/>
 										</div>
 										<div>
-											<button type='submit' className='site-button site-button-primary'>
-												Send Message
+											<button
+												disabled={isLoading}
+												type='submit'
+												className='site-button site-button-primary'>
+												{isLoading ? (
+													<TailSpin width={20} height={20} color='#fff' />
+												) : (
+													"Send Message"
+												)}
 											</button>
 										</div>
 									</form>

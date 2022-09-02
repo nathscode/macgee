@@ -34,4 +34,22 @@ function constructMsg(data, user) {
 	return msg
 }
 
-export { constructMsg }
+function constructContactMsg(data) {
+	let msg = `
+    <div>
+            <h1>Contact Message</h1>
+            <p>This email contains contact message from a customer.</p>
+            <h4>Customer information<h4>
+            <ul>
+                <li>Name: ${data.fullname}</li>
+                <li>Contact: ${data.email}</li>
+                <li>Message: ${data.message}</li>
+            </ul>
+
+        </div>
+    `
+
+	return msg
+}
+
+export { constructMsg, constructContactMsg }

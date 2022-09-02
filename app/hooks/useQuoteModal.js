@@ -20,7 +20,7 @@ function reducer(state, action) {
 		case "SHOW_MODAL":
 			return { ...state, show: true }
 		case "HIDE_MODAL":
-			return { ...state, show: false }
+			return { ...state, show: false, hasSelectedProduct: false }
 		case "SET_TYPE":
 			return { ...state, data: { ...state.data, type: action.payload } }
 		case "SET_ID":
