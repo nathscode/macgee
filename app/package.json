@@ -1,27 +1,13 @@
 {
-	"name": "app",
-	"version": "0.1.0",
-	"private": true,
+	"name": "macgeee",
+	"version": "1.0.0",
+	"description": "Company website that sell heavy construction trucks",
+	"main": "index.js",
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"scss": "node-sass --watch scss -o assets/css"
 	},
-	"dependencies": {
-		"framer-motion": "^7.2.1",
-		"next": "12.2.5",
-		"next-seo": "^5.5.0",
-		"nextjs-progressbar": "^0.0.14",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-hot-toast": "^2.3.0",
-		"react-loader-spinner": "^5.3.3",
-		"nodemailer": "^6.7.8",
-		"validator": "^13.7.0"
-	},
-	"devDependencies": {
-		"eslint": "8.23.0",
-		"eslint-config-next": "12.2.5"
-	}
+	"author": "Michael Nathan",
+	"license": "ISC",
+	"dependencies": {}
 }
