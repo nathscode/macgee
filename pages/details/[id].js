@@ -36,8 +36,11 @@ function Details({ machine }) {
 							<Image layout='fill' src={`/assets/images${main}`} alt='' />
 						</div>
 						<div className='site-details__truck-wrapper__small-image'>
-							{machine.images.map((img) => (
-								<div style={{ cursor: "pointer", position: "relative" }} onClick={() => setMain(img)}>
+							{machine.images.map((img, i) => (
+								<div
+									key={`${img}-${i}`}
+									style={{ cursor: "pointer", position: "relative" }}
+									onClick={() => setMain(img)}>
 									<Image layout='fill' src={`/assets/images${img}`} alt='' />
 								</div>
 							))}
