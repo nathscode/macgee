@@ -7,9 +7,11 @@ function Details({ machine }) {
 	const { showModalWithProduct } = useContext(QuoteModalContext)
 	const [main, setMain] = useState(machine.images[0])
 	const spec = []
+	const msg = [`*Title: ${machine.title}*`]
 
 	for (const prop in machine.specification) {
 		spec.push({ type: prop, value: machine.specification[prop] })
+		msg.push(`${prop}: ${machine.specification[prop]} `)
 	}
 
 	console.log(spec)
@@ -75,7 +77,11 @@ function Details({ machine }) {
 												className='site-button site-button-primary'>
 												Request Price
 											</button>
-											<a href='/' className='site-button site-button-chat'>
+											<a
+												href={`https://api.whatsapp.com//send?phone=+2347035846669&text=${encodeURIComponent(
+													msg.join("\n")
+												)}`}
+												className='site-button site-button-chat'>
 												<svg
 													xmlns='http://www.w3.org/2000/svg'
 													viewBox='0 0 24 24'
