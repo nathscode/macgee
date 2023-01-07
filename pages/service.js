@@ -1,4 +1,5 @@
 import PageWrapper from "../components/layout/page-wrapper";
+import Link from "next/link";
 
 function Service() {
 	return (
@@ -9,8 +10,7 @@ function Service() {
 						<div className="pager-body__services__content">
 							<h2>Our services</h2>
 							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-								Aliquam quis, impedit cum enim earum eaque iusto quod
+								We provide new or fairly used earthwork machinery and parts.
 							</p>
 							<ul className="pager-body__services__content__box">
 								<li className="pager-body__services__content__box__item">
@@ -27,8 +27,9 @@ function Service() {
 									<div className="pager-body__services__content__box__item--text">
 										<h5>Sales of New and Old Truck </h5>
 										<p>
-											Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-											Alias sequi perspiciatis suscipit, culpa at adipisci!
+											New and reconditioned trucks are available at your
+											fingertips. Our monsters are powerful, strong, and tough
+											to fit any challenge.
 										</p>
 									</div>
 								</li>
@@ -46,8 +47,9 @@ function Service() {
 									<div className="pager-body__services__content__box__item--text">
 										<h5>Sales of Truck Parts </h5>
 										<p>
-											Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-											Alias sequi perspiciatis suscipit, culpa at adipisci!
+											Find reliable and readily available parts backed by Macgee
+											service. We provide you with the best possible use of our
+											parts.
 										</p>
 									</div>
 								</li>
@@ -66,16 +68,18 @@ function Service() {
 									<div className="pager-body__services__content__box__item--text">
 										<h5>Maintenance T&amp;C</h5>
 										<p>
-											Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-											Alias sequi perspiciatis suscipit, culpa at adipisci!
+											Maintenance and repairs are available during the time of
+											warranties.
 										</p>
 									</div>
 								</li>
 							</ul>
 							<div style={{ marginTop: "2rem" }}>
-								<a href="#request" className="site-button site-button-primary">
-									Request Quote
-								</a>
+								<Link href="/inventory">
+									<a className="site-button site-button-primary">
+										Request Quote
+									</a>
+								</Link>
 							</div>
 						</div>
 						<div className="pager-body__visual">
