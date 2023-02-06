@@ -1,0 +1,9 @@
+Name: Concrete mixer red (Aux drive)
+Year: 1992
+manufacterer: Mack
+model: dmm
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill

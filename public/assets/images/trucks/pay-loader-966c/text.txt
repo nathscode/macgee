@@ -1,0 +1,9 @@
+Name: pay loader
+Year: 1979
+manufacterer: cat
+model: 966c
+condition: used
+hours: 
+bucket: yes
+exterior: nill
+rops:   nill

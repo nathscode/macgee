@@ -1,0 +1,9 @@
+Name: wheel loader with spare tire
+Year: 1977
+manufacterer: cat
+model: 950
+condition: used
+hours: 
+bucket: yes
+exterior: nill
+rops:   nill

@@ -1,0 +1,9 @@
+Name: compactor roller
+Year: 1993
+manufacterer: cat
+model: cb-534d
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill

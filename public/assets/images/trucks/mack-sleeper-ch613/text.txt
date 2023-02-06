@@ -1,0 +1,9 @@
+Name: sleeper tractor 
+Year: 1990
+manufacterer: mack
+model: ch613
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill

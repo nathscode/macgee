@@ -1,0 +1,9 @@
+Name: Asphalt roller
+Year: 1999
+manufacterer: cat
+model: cb-634c
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill

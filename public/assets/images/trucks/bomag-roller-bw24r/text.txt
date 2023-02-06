@@ -1,0 +1,9 @@
+Name: bomag roller
+Year: 2002
+manufacterer: bomag
+model: bw24r
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill

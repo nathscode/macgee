@@ -1,0 +1,9 @@
+Name: dump truck
+Year: 1991
+manufacterer: mack
+model: ch613
+condition: used
+hours: 
+bucket: yes
+exterior: nill
+rops:   nill

@@ -1,0 +1,9 @@
+Name: mixer
+Year: 1997
+manufacterer: Mack
+model: dm690
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill

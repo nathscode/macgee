@@ -1,0 +1,9 @@
+Name: scavator
+Year: 2005
+manufacterer: cat
+model: 320cl
+condition: used
+hours: 
+bucket: yes
+exterior: nill
+rops:   nill

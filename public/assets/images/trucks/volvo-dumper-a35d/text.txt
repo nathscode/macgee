@@ -1,0 +1,9 @@
+Name: Volvo dumper
+Year: 2007
+manufacterer: volvo
+model: a35d
+condition: used
+hours: 
+bucket: nill
+exterior: nill
+rops:   nill
