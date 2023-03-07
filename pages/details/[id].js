@@ -86,7 +86,7 @@ function Details({ machine }) {
 									<li className="block">
 										<h4>Address</h4>
 										<p>
-											Km 6, osubi-airport road, Warri, Delta state, Nigeria.
+											Km 6, osubi-airport road, Osubi, Delta state, Nigeria.
 										</p>
 										<h4>Message</h4>
 										<div className="action-buttons">
@@ -155,9 +155,6 @@ export async function getServerSideProps(context) {
 
 		const list = machines.filter((item) => Number(item.id) === Number(id));
 		const machine = list[0];
-		console.log(id);
-		console.log(machines);
-		console.log(machine);
 
 		if (!machine) {
 			return {
@@ -171,7 +168,6 @@ export async function getServerSideProps(context) {
 			},
 		};
 	} catch (error) {
-		console.log(error.message);
 		return {
 			redirect: {
 				destination: "/",

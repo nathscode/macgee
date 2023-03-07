@@ -1,21 +1,21 @@
-import Link from "next/link"
+import Link from "next/link";
 
 function Banner() {
 	return (
-		<section className='banner'>
-			<img src='assets/images/hero/hero.jpg' alt='Five developers at work.' />
-			<section className='banner__text'>
-				<div className='banner__text__inner'>
-					<div className='hero-text'>
-						<span>buy new or old trucks</span>
+		<section className="banner">
+			<img src="assets/images/hero/hero.jpg" alt="Five developers at work." />
+			<section className="banner__text">
+				<div className="banner__text__inner">
+					<div className="hero-text">
+						<span>buy new or used trucks</span>
 					</div>
 					<h1>MacGee</h1>
-					<div className='hero-text-sub'>
+					<div className="hero-text-sub">
 						<h2>Equipment</h2>
 					</div>
-					<div className='hero-text-two'>
+					<div className="hero-text-two">
 						<span>
-							<Link href='/service'>
+							<Link href="/service">
 								<a>our services</a>
 							</Link>
 						</span>
@@ -23,7 +23,7 @@ function Banner() {
 				</div>
 			</section>
 		</section>
-	)
+	);
 }
 
-export default Banner
+export default Banner;

@@ -3,7 +3,7 @@ function Works() {
 		<section className="works">
 			<div className="content-wrapper">
 				<div className="works__header">
-					<h2>How it Work</h2>
+					<h2>How it Works</h2>
 					<p>You don&apos;t just buy a machine, you buy experience.</p>
 				</div>
 				<div className="works__list">

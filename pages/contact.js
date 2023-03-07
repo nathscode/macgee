@@ -139,7 +139,7 @@ function Contact() {
 										<div className="contact__info__item--text">
 											<h3>Osubi, Delta State. </h3>
 											<p>
-												Km 6, osubi-airport road, Warri, Delta state, Nigeria.
+												Km 6, osubi-airport road, Osubi, Delta state, Nigeria.
 											</p>
 										</div>
 									</div>

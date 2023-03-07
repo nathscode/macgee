@@ -147,7 +147,7 @@ export const machines = [
 		description: "",
 		type: "LOADER",
 		specification: {
-			year: "1991",
+			year: "1981",
 			Manufacturer: "Caterpillar",
 			Model: "966d",
 			Condition: "used",
