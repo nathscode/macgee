@@ -28,11 +28,7 @@ function Inventory() {
 			<section className="inventory">
 				<div className="content-wrapper">
 					<div className="inventory__header">
-						<h2>Our Trucks Listing </h2>
-						<p>
-							Helps you to find quality trucks. But I must explain to you how
-							all this mistaken
-						</p>
+						<h2>Our Trucks and equipment Listing </h2>
 					</div>
 					<div className="category">
 						<select value={filter} onChange={(e) => setFilter(e.target.value)}>

@@ -7,7 +7,7 @@ function Banner() {
 			<section className="banner__text">
 				<div className="banner__text__inner">
 					<div className="hero-text">
-						<span>buy new or used trucks</span>
+						<span>buy new or used machinery's</span>
 					</div>
 					<h1>MacGee</h1>
 					<div className="hero-text-sub">
