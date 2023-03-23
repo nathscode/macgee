@@ -392,4 +392,30 @@ export const machines = [
 			"/trucks/mack/4.jpg",
 		],
 	},
+	{
+		id: "21",
+		title: "1995 CAT 320L EXCAVATOR",
+		description:
+			"ENGINE MODEL-3066 32” TRACK SHOES 75/80% UNDERCARRIAGE LONG REACH BOOM HOURS-14,800 EXCELLENT CONDITION",
+		type: "EXCAVATOR",
+		specification: {
+			year: "1995",
+			Manufacturer: "caterpillar",
+			Model: "320L",
+			Condition: "used",
+			SerialNumber: "",
+			Hours: "nill",
+			Bucket: "nil",
+			Exterior: "nill",
+			ROPS: "nill",
+		},
+		images: [
+			"/trucks/excavator-320L/1.jpg",
+			"/trucks/excavator-320L/2.jpg",
+			"/trucks/excavator-320L/3.jpg",
+			"/trucks/excavator-320L/4.jpg",
+			"/trucks/excavator-320L/5.jpg",
+			"/trucks/excavator-320L/6.jpg",
+		],
+	},
 ];

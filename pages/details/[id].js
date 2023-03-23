@@ -63,7 +63,11 @@ function Details({ machine }) {
 						<div className="site-details__truck-content__section">
 							<div>
 								<h3>Description</h3>
-								<p>{`${machine.title} - ${machine.specification.year}- ${machine.specification.Model}`}</p>
+								{machine.description ? (
+									<p>{machine.description}</p>
+								) : (
+									<p>{`${machine.title} - ${machine.specification.year}- ${machine.specification.Model}`}</p>
+								)}
 							</div>
 						</div>
 						<div className="site-details__truck-content__section">
