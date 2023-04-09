@@ -24,7 +24,7 @@ function Inventory() {
 		<section className="inventory">
 			<div className="content-wrapper">
 				<div className="inventory__header">
-					<h2>Our Trucks Listing </h2>
+					<h2>Our Equipments Listing </h2>
 					<p>
 						Our machines are available in different sizes and shapes. When you
 						need power and durability, our equipment is your best choice.

@@ -28,7 +28,7 @@ function Inventory() {
 			<section className="inventory">
 				<div className="content-wrapper">
 					<div className="inventory__header">
-						<h2>Our Trucks and equipment Listing </h2>
+						<h2>Our Equipments Listing </h2>
 					</div>
 					<div className="category">
 						<select value={filter} onChange={(e) => setFilter(e.target.value)}>
