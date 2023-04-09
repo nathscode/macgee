@@ -90,7 +90,7 @@ function Details({ machine }) {
 									<li className="block">
 										<h4>Address</h4>
 										<p>
-											Km 6, osubi-airport road, Osubi, Delta state, Nigeria.
+											Km 6, Osubi-airport road, Osubi, Delta state, Nigeria.
 										</p>
 										<h4>Message</h4>
 										<div className="action-buttons">
