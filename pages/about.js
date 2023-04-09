@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageWrapper from "../components/layout/page-wrapper";
 
 function About() {
@@ -75,7 +76,12 @@ function About() {
 							</div>
 						</div>
 						<div className="pager-body__visual">
-							<img src="assets/images/hero/about-hero.jpg" alt="" />
+							<Image
+								src="/assets/images/hero/about-hero.jpg"
+								width={"500px"}
+								height={"500px"}
+								alt=""
+							/>
 						</div>
 					</div>
 				</section>
