@@ -1,9 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function Banner() {
 	return (
 		<section className="banner">
-			<img src="assets/images/hero/hero.jpg" alt="Five developers at work." />
+			<Image
+				layout="fill"
+				src="/assets/images/hero/hero.jpg"
+				alt="Five developers at work."
+			/>
 			<section className="banner__text">
 				<div className="banner__text__inner">
 					<div className="hero-text">

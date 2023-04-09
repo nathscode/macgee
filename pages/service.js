@@ -1,5 +1,6 @@
 import PageWrapper from "../components/layout/page-wrapper";
 import Link from "next/link";
+import Image from "next/image";
 
 function Service() {
 	return (
@@ -83,7 +84,12 @@ function Service() {
 							</div>
 						</div>
 						<div className="pager-body__visual">
-							<img src="assets/images/hero/about-hero.jpg" alt="" />
+							<Image
+								width={"500px"}
+								height={"500px"}
+								src="/assets/images/hero/about-hero.jpg"
+								alt=""
+							/>
 						</div>
 					</div>
 				</section>

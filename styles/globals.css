@@ -1126,7 +1126,7 @@ video {
 	overflow: hidden;
 	background-color: #000;
 }
-.inventory__list__item--image img {
+.inventory__list__item--image .invent-image {
 	width: 100%;
 	height: 100%;
 	object-fit: fill;
@@ -1135,7 +1135,7 @@ video {
 	-o-transition: all 0.4s ease;
 	transition: all 0.4s ease;
 }
-.inventory__list__item--image:hover img {
+.inventory__list__item--image:hover .invent-image {
 	opacity: 1;
 }
 .inventory__list__item--content {

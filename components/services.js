@@ -1,9 +1,16 @@
+import Image from "next/image";
+
 function Services() {
 	return (
 		<section className="services">
 			<div className="services__inner">
 				<div className="services__visual">
-					<img src="assets/images/hero/about-hero.jpg" alt="" />
+					<Image
+						width={"800px"}
+						height={"800px"}
+						src="/assets/images/hero/about-hero.jpg"
+						alt="truck image"
+					/>
 				</div>
 				<div className="services__content">
 					<h2>Our services</h2>

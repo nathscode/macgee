@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { machines } from "../data/data.js";
 import { fadeMoveInTop } from "../utils/animations";
 import { QuoteModalContext } from "../pages/_app";
+import Image from "next/image";
 
 function Inventory() {
 	const { showModalWithProduct } = useContext(QuoteModalContext);
@@ -58,9 +59,11 @@ function Inventory() {
 							<div className="inventory__list__item--image">
 								<Link href={`/details/${inventory.id}`}>
 									<a>
-										<img
-											src={`assets/images${inventory.images[0]}`}
+										<Image
+											src={`/assets/images${inventory.images[0]}`}
 											alt={inventory.title}
+											width={"350px"}
+											height={"220px"}
 										/>
 									</a>
 								</Link>
