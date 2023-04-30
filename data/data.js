@@ -418,4 +418,30 @@ export const machines = [
 			"/trucks/excavator-320L/6.jpg",
 		],
 	},
+	{
+		id: "22",
+		title: "1996 Cat D6H (LGP) Dozer",
+		description:
+			"1996 Cat D6H (LGP) Dozer, Equipped with cat 3306DI engine, 90% undercarriage Erops Cab heat/, air conditioning  and Clean unit",
+		type: "EXCAVATOR",
+		specification: {
+			year: "1996",
+			Manufacturer: "caterpillar",
+			Model: "D6H",
+			Condition: "used",
+			SerialNumber: "",
+			Hours: "nill",
+			Bucket: "nil",
+			Exterior: "nill",
+			ROPS: "nill",
+		},
+		images: [
+			"/trucks/dozer-d6h/1.jpg",
+			"/trucks/dozer-d6h/2.jpg",
+			"/trucks/dozer-d6h/3.jpg",
+			"/trucks/dozer-d6h/4.jpg",
+			"/trucks/dozer-d6h/5.jpg",
+			"/trucks/dozer-d6h/6.jpg",
+		],
+	},
 ];
