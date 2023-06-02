@@ -62,10 +62,10 @@ function About() {
 								<div className="flex flex-col mt-0 pl-0 sm:pl-16">
 									<p className="text-gray-800 font-normal text-[15px] leading-6">
 										MacGee Trucks and Equipment Was founded with the belief that
-										performance, availability, and meeting our customers' needs
-										are paramount to our business. MacGee maintains a commitment
-										to technological innovation to retain its leadership in a
-										highly competitive global marketplace.
+										performance, availability, and meeting our customers&lsquo;
+										needs are paramount to our business. MacGee maintains a
+										commitment to technological innovation to retain its
+										leadership in a highly competitive global marketplace.
 									</p>
 								</div>
 							</div>
