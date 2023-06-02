@@ -42,7 +42,7 @@ function About() {
 			<div className="bg-white">
 				<div className="content-wrapper">
 					<section className="pager-body">
-						<h1 className="text-5xl font-semibold uppercase text-gray-800">
+						<h1 className="text-5xl mb-5 font-semibold uppercase text-gray-800">
 							About <span className="text-brand italic underline">Us</span>
 						</h1>
 						<div className="flex flex-col justify-start items-start lg:flex-row gap-5">
@@ -59,7 +59,7 @@ function About() {
 								<div className="flex justify-center items-center w-16 h-16 text-white bg-brand rounded-full">
 									<span className="text-2xl text-center">01</span>
 								</div>
-								<div className="flex flex-col mt-0 pl-0 sm:pl-16">
+								<div className="flex flex-col mt-3 sm:mt-4 pl-0 sm:pl-16">
 									<p className="text-gray-800 font-normal text-[15px] leading-6">
 										MacGee Trucks and Equipment Was founded with the belief that
 										performance, availability, and meeting our customers&lsquo;
@@ -93,7 +93,7 @@ function About() {
 								<div className="flex justify-center items-center w-16 h-16 text-white bg-brand rounded-full">
 									<span className="text-2xl text-center">02</span>
 								</div>
-								<div className="flex flex-col mt-0 pl-0 sm:pl-16">
+								<div className="flex flex-col mt-3 sm:mt-0 pl-0 sm:pl-16">
 									<p className="text-gray-800 font-normal text-[15px] leading-6">
 										Our customers expect high-class power machinery and
 										equipment that provides unique capabilities, meets exacting
