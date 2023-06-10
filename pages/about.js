@@ -227,6 +227,117 @@ function About() {
 					</section>
 				</div>
 			</div>
+			<div className="bg-[#252323]">
+				<div className="content-wrapper">
+					<section className="pager-body">
+						<div className="flex flex-col my-10 justify-start items-start lg:flex-row gap-5">
+							<div className="w-full sm:w-1/2">
+								<Image
+									className="w-full h-full"
+									src="/assets/images/about/metrics.png"
+									width={"500"}
+									height={"250"}
+									alt=""
+								/>
+							</div>
+							<div className="w-full sm:w-1/2">
+								<h2 className="!text-brand text-3xl  sm:text-5xl font-bold">
+									17 YEARS STILL GROWING
+								</h2>
+								<div className="flex flex-wrap justify-start gap-4 mt-10">
+									<div className="flex flex-col w-full sm:w-[30%] justify-between p-5 border  rounded bg-white/20">
+										<h4 className="m-0 text-4xl text-white font-semibold">
+											2000+
+										</h4>
+										<p className="mt-1 uppercase text-slate-300 font-normal">
+											Trucks and parts sold
+										</p>
+									</div>
+									<div className="flex flex-col w-full sm:w-[30%] justify-between p-5 border  rounded bg-white/20">
+										<h4 className="m-0 text-4xl text-white font-semibold">
+											3000+
+										</h4>
+										<p className="mt-1 uppercase text-slate-300 font-normal">
+											Equipments sold
+										</p>
+									</div>
+									<div className="flex flex-col w-full sm:w-[30%] justify-between p-5 border  rounded bg-white/20">
+										<h4 className="m-0 text-4xl text-white font-semibold">
+											200+
+										</h4>
+										<p className="mt-1 uppercase text-slate-300 font-normal">
+											Satisfied customers
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="flex flex-col my-10 justify-center items-center lg:flex-row gap-5">
+							<div className="block sm:hidden w-full sm:w-1/2">
+								<Image
+									className="w-full h-full rounded-lg"
+									src="/assets/images/about/ceo.jpg"
+									width={"500"}
+									height={"350"}
+									alt=""
+								/>
+							</div>
+							<div className="w-full sm:w-1/2">
+								<h2 className="!text-white text-3xl uppercase  sm:text-5xl font-bold">
+									CEO'S CORNER
+								</h2>
+								<h3 className="text-lg font-semibold text-slate-100 my-1">
+									Mr. Mark Aghogho Rhima
+									<br />
+									Chief Executive Officer
+								</h3>
+								<p className="text-slate-300 mt-2 font-normal text-[14px] leading-6">
+									Mr. Mark is an expert in supply chain management with
+									knowledge of procuring vehicles, trucks,equipment, and
+									logistics. In Nigeria, Mr. Mark graduated with a Bachelor of
+									Business Administration from the University of Lagos. Before
+									relocating to the United States to pursue his lifetime
+									enthusiasm to learn and build industrial skills in the vehicle
+									and equipment supply chain business, he worked as a sales
+									executive and security officer at SELCO Building Material
+									Company in Manchester, United Kingdom, between 2002 and 2007.
+									He started his business journey into the automotive sector
+									with Bill Lyons Crushers Incorporated, New Haven, New York,to
+									realize his entrepreneurial aspirations. There, he gained and
+									honed substantial industry knowledge in the sales, repair, and
+									maintenance of trucks, heavy-duty machinery, and earth-moving
+									machinery.
+								</p>
+								<p className="text-slate-300 mt-2 font-normal text-[14px] leading-6">
+									To meet the import and supply needs of the Nigerian market, he
+									established MACID Autos and Equipment Company in 2007. MACID
+									Autos and Equipment was reengineered, renamed, and
+									incorporated as MacGee Trucks and Equipment to achieve Mark's
+									goals of being a service leader in the auto and equipment
+									supply chain in Nigeria, to meet the growing needs of his
+									customers and clients in the oil and gas industry, and to
+									increase strategic partnerships with significant dealers
+									worldwide. Cat, Mack, Caledonia Diesel, Leon Equipment, Weaco,
+									Fiori,Cummins Diesel, 3fold Trucks & Equipment, Pete Global
+									Heavy Equipment, Thompson Pumps,GE, Mitsubishi Electric,
+									Toshiba, Shelton Motors, UK, and Thermo Chill, South Africa,
+									are just a few of the companies that MacGee is a significant
+									partner with.
+								</p>
+							</div>
+							<div className="hidden sm:block w-full sm:w-1/2">
+								<Image
+									className="w-full h-full rounded-lg"
+									src="/assets/images/about/ceo.jpg"
+									width={"500"}
+									height={"350"}
+									alt=""
+								/>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
 		</PageWrapper>
 	);
 }

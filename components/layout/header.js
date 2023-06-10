@@ -81,6 +81,13 @@ function Header() {
 								</Link>
 							</li>
 							<li className="header__navigation__list__item">
+								<Link href="/gallery">
+									<a className="header__navigation__list__item--link">
+										Gallery
+									</a>
+								</Link>
+							</li>
+							<li className="header__navigation__list__item">
 								<Link href="/about">
 									<a className="header__navigation__list__item--link">
 										About Us
@@ -133,6 +140,13 @@ function Header() {
 										<Link href="/inventory">
 											<a className="header__navigation__list__item--link">
 												Inventory
+											</a>
+										</Link>
+									</li>
+									<li className="header__navigation__list__item">
+										<Link href="/gallery">
+											<a className="header__navigation__list__item--link">
+												Gallery
 											</a>
 										</Link>
 									</li>

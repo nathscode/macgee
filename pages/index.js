@@ -1,5 +1,6 @@
 import Accordion from "../components/accordion";
 import Banner from "../components/banner";
+import Gallery from "../components/gallery";
 import Inventory from "../components/inventory";
 import Wrapper from "../components/layout/wrapper";
 import Partners from "../components/partners";
@@ -17,6 +18,7 @@ function Home() {
 			<Services />
 			<Testimonial />
 			<Accordion />
+			<Gallery />
 		</Wrapper>
 	);
 }
