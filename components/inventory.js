@@ -73,8 +73,8 @@ function Inventory() {
 										</div>
 									</a>
 								</Link>
-								<div class="bg-white">
-									<div class="flex flex-col items-start justify-start">
+								<div className="bg-white">
+									<div className="flex flex-col items-start justify-start">
 										<h5 className="text-lg m-0 mt-2 font-bold text-black">
 											{inventory.title}
 										</h5>

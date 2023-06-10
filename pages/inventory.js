@@ -64,20 +64,20 @@ function Inventory() {
 												alt={inventory.title}
 												tabindex="0"
 												layout="fill"
-												className="focus:outline-none w-full h-full"
+												className="w-full h-full focus:outline-none"
 											/>
 										</div>
 									</a>
 								</Link>
-								<div class="bg-white">
-									<div class="flex flex-col items-start justify-start">
+								<div className="bg-white">
+									<div className="flex flex-col items-start justify-start">
 										<Link href={`/details/${inventory.id}`}>
-											<a className="text-lg group-hover:text-brand m-0 mt-2 font-bold text-black">
+											<a className="m-0 mt-2 text-lg font-bold text-black group-hover:text-brand">
 												{inventory.title}
 											</a>
 										</Link>
 										<div className="flex justify-between w-full my-2">
-											<div className="inline-flex justify-center items-center">
+											<div className="inline-flex items-center justify-center">
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
 													viewBox="0 0 512 512"
@@ -104,7 +104,7 @@ function Inventory() {
 												</button>
 											</div>
 										</div>
-										<ul className="flex w-full justify-around mt-2 p-0 items-start">
+										<ul className="flex items-start justify-around w-full p-0 mt-2">
 											<li
 												className="flex items-center justify-start w-full inventory__meta__item"
 												title="Engine"
