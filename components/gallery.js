@@ -25,30 +25,30 @@ const Gallery = () => {
 						</div>
 					</div>
 					<div className="w-full lg:w-3/5">
-						<div class="container mx-auto px-5 py-2 lg:px-32">
-							<div class="flex flex-wrap flex-col justify-center">
-								<div class="relative w-full h-[250px] p-1 md:p-2">
+						<div className="container px-5 py-2 mx-auto lg:px-32">
+							<div className="flex flex-col flex-wrap justify-center">
+								<div className="relative w-full h-[250px] p-1 md:p-2">
 									<Image
 										alt="happy customer from macgee"
-										class="block h-full w-full rounded-lg object-cover object-center"
+										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/9.jpg"
 										layout="fill"
 									/>
 								</div>
 							</div>
-							<div class="flex flex-wrap justify-center gap-2 sm:gap-4 mt-4">
-								<div class="relative w-[48%] h-[250px] p-1 md:p-2">
+							<div className="flex flex-wrap justify-center gap-2 mt-4 sm:gap-4">
+								<div className="relative w-[48%] h-[250px] p-1 md:p-2">
 									<Image
 										alt="Macgee ceo with current Governor of Delta state"
-										class="block h-full w-full rounded-lg object-cover object-center"
+										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/1.jpg"
 										layout="fill"
 									/>
 								</div>
-								<div class="relative w-[48%] h-[250px] p-1 md:p-2">
+								<div className="relative w-[48%] h-[250px] p-1 md:p-2">
 									<Image
 										alt="Macgee ceo with PIA partners"
-										class="block h-full w-full rounded-lg object-cover object-center"
+										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/6.jpg"
 										layout="fill"
 									/>

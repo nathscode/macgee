@@ -9,8 +9,8 @@ function Gallery() {
 					<div className="inventory__header">
 						<h2>Happy Customer at the Office </h2>
 					</div>
-					<div class="flex flex-col md:flex-row gap-2">
-						<div class="relative w-full sm:w-1/2 h-[350px] group">
+					<div className="flex flex-col gap-2 md:flex-row">
+						<div className="relative w-full sm:w-1/2 h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -20,14 +20,14 @@ function Gallery() {
 							</div>
 							<Image
 								alt="happy customer from macgee"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/9.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-1/2">
-							<div class="flex flex-col gap-2 sm:flex-row flex-wrap justify-center  sm:gap-4">
-								<div class="relative w-full sm:w-[48%] h-[350px] group">
+						<div className="relative w-full sm:w-1/2">
+							<div className="flex flex-col flex-wrap justify-center gap-2 sm:flex-row sm:gap-4">
+								<div className="relative w-full sm:w-[48%] h-[350px] group">
 									<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 										<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 											<h4 className="text-sm font-semibold text-center text-white">
@@ -37,12 +37,12 @@ function Gallery() {
 									</div>
 									<Image
 										alt="Macgee ceo with current Governor of Delta state"
-										class="block h-full w-full rounded-lg object-cover object-center"
+										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/1.jpg"
 										layout="fill"
 									/>
 								</div>
-								<div class="relative w-full sm:w-[48%] h-[350px] group">
+								<div className="relative w-full sm:w-[48%] h-[350px] group">
 									<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 										<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 											<h4 className="text-sm font-semibold text-center text-white">
@@ -52,7 +52,7 @@ function Gallery() {
 									</div>
 									<Image
 										alt="Macgee ceo with PIA partners"
-										class="block h-full w-full rounded-lg object-cover object-center"
+										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/6.jpg"
 										layout="fill"
 									/>
@@ -60,8 +60,8 @@ function Gallery() {
 							</div>
 						</div>
 					</div>
-					<div class="flex flex-wrap justify-between gap-2 mt-3">
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+					<div className="flex flex-wrap justify-between gap-2 mt-3">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -71,12 +71,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt="Ebenezer of Ebenco Global"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/2.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -86,12 +86,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt="Macgee ceo with Mohammad ARI AIG zone 2 lagos"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/3.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group ">
+						<div className="relative w-full sm:w-[24%] h-[350px] group ">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -102,12 +102,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt="Macgee ceo with Bankole Olarenwaju, Commissioner of police Interpol Alagbon lagos"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/4.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -117,12 +117,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt="Macgee ceo with Rainoil ceo, Gabriel Ogbechie"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/10.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -133,12 +133,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt="PAI Agent"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/5.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -149,12 +149,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt=" Horacio ETEROVIC - international sales manager & Olatunbosun sales agent"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/6.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -164,12 +164,12 @@ function Gallery() {
 							</div>
 							<Image
 								alt="ceo with pai agent"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/7.jpg"
 								layout="fill"
 							/>
 						</div>
-						<div class="relative w-full sm:w-[24%] h-[350px] group">
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
@@ -179,7 +179,7 @@ function Gallery() {
 							</div>
 							<Image
 								alt="Macgee ceo with happy customer"
-								class="block h-full w-full rounded-lg object-cover object-center"
+								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/8.jpg"
 								layout="fill"
 							/>
