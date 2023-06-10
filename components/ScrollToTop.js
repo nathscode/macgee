@@ -43,7 +43,7 @@ export const ScrollToTop = () => {
 					fill="currentColor"
 					strokeWidth="2.5"
 					stroke="currentColor"
-					class="h-4 w-4"
+					className="h-4 w-4"
 				>
 					<path
 						fillRule="evenodd"
