@@ -14,12 +14,12 @@ function Gallery() {
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
-										Happy customer bought heavy duty cat batteries Inbox
+										Happy customer bought 200AH heavy duty Cat OEM Batteries
 									</h4>
 								</div>
 							</div>
 							<Image
-								alt="happy customer from macgee"
+								alt="Happy customer bought 200AH heavy duty Cat OEM Batteries"
 								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/9.jpg"
 								layout="fill"
@@ -31,12 +31,13 @@ function Gallery() {
 									<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 										<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 											<h4 className="text-sm font-semibold text-center text-white">
-												Ceo with current Governor of Delta state
+												CEO with the Governor of Delta state. His Excellence
+												Sheriff Oborevwori
 											</h4>
 										</div>
 									</div>
 									<Image
-										alt="Macgee ceo with current Governor of Delta state"
+										alt="CEO with the Governor of Delta state.His Excellence Sheriff Oborevwori"
 										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/1.jpg"
 										layout="fill"
@@ -46,12 +47,13 @@ function Gallery() {
 									<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 										<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 											<h4 className="text-sm font-semibold text-center text-white">
-												Ceo with PIA partner
+												CEO with PAI industries international sales agent.
+												Horacio & Olatunbosun
 											</h4>
 										</div>
 									</div>
 									<Image
-										alt="Macgee ceo with PIA partners"
+										alt="CEO with PAI industries international sales agent. Horacio  & Olatunbosun"
 										className="block object-cover object-center w-full h-full rounded-lg"
 										src="/assets/images/clients/6.jpg"
 										layout="fill"
@@ -65,12 +67,12 @@ function Gallery() {
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
-										CEO Ebenezer of Ebenco Global
+										CEO with Enebezer , Ebenco global
 									</h4>
 								</div>
 							</div>
 							<Image
-								alt="Ebenezer of Ebenco Global"
+								alt="CEO with Enebezer , Ebenco global"
 								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/2.jpg"
 								layout="fill"
@@ -142,15 +144,14 @@ function Gallery() {
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
-										Horacio ETEROVIC - international sales manager & Olatunbosun
-										sales agent.
+										Ifeanyi Nwanchukwu CEO Ify Bros Constructions
 									</h4>
 								</div>
 							</div>
 							<Image
-								alt=" Horacio ETEROVIC - international sales manager & Olatunbosun sales agent"
+								alt="Ifeanyi Nwanchukwu CEO Ify Bros Constructions"
 								className="block object-cover object-center w-full h-full rounded-lg"
-								src="/assets/images/clients/6.jpg"
+								src="/assets/images/clients/11.jpg"
 								layout="fill"
 							/>
 						</div>
@@ -158,12 +159,12 @@ function Gallery() {
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
-										Ceo wiht PAI partners
+										Celi & Marcelo from panegossi Brazil
 									</h4>
 								</div>
 							</div>
 							<Image
-								alt="ceo with pai agent"
+								alt="Celi & Marcelo from panegossi Brazil"
 								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/7.jpg"
 								layout="fill"
@@ -173,12 +174,13 @@ function Gallery() {
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
 									<h4 className="text-sm font-semibold text-center text-white">
-										CEO with happy customer
+										Installation of water chillers at Transcorp power
+										generation, Ughelli 2015
 									</h4>
 								</div>
 							</div>
 							<Image
-								alt="Macgee ceo with happy customer"
+								alt="installation of water chillers at Transcorp power generation, Ughelli 2015"
 								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/8.jpg"
 								layout="fill"

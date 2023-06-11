@@ -311,7 +311,7 @@ function About() {
 								<p className="text-slate-300 mt-2 font-normal text-[14px] leading-6">
 									To meet the import and supply needs of the Nigerian market, he
 									established MACID Autos and Equipment Company in 2007. MACID
-									Autos and Equipment was re0engineered, renamed, and
+									Autos and Equipment was re-engineered, renamed, and
 									incorporated as MacGee Trucks and Equipment to achieve
 									Mark&lsquo;s goals of being a service leader in the auto and
 									equipment supply chain in Nigeria, to meet the growing needs
