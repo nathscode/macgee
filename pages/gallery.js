@@ -140,21 +140,7 @@ function Gallery() {
 								layout="fill"
 							/>
 						</div>
-						<div className="relative w-full sm:w-[24%] h-[350px] group">
-							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
-								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
-									<h4 className="text-sm font-semibold text-center text-white">
-										Ifeanyi Nwanchukwu CEO Ify Bros Constructions
-									</h4>
-								</div>
-							</div>
-							<Image
-								alt="Ifeanyi Nwanchukwu CEO Ify Bros Constructions"
-								className="block object-cover object-center w-full h-full rounded-lg"
-								src="/assets/images/clients/11.jpg"
-								layout="fill"
-							/>
-						</div>
+
 						<div className="relative w-full sm:w-[24%] h-[350px] group">
 							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
 								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
@@ -183,6 +169,21 @@ function Gallery() {
 								alt="installation of water chillers at Transcorp power generation, Ughelli 2015"
 								className="block object-cover object-center w-full h-full rounded-lg"
 								src="/assets/images/clients/8.jpg"
+								layout="fill"
+							/>
+						</div>
+						<div className="relative w-full sm:w-[24%] h-[350px] group">
+							<div className="absolute top-0 left-0 z-10 hidden w-full h-full transition rounded-lg group-hover:flex bg-black/50">
+								<div className="relative flex flex-col items-center justify-center h-full p-1 text-white">
+									<h4 className="text-sm font-semibold text-center text-white">
+										Ifeanyi Nwanchukwu CEO Ify Bros Constructions
+									</h4>
+								</div>
+							</div>
+							<Image
+								alt="Ifeanyi Nwanchukwu CEO Ify Bros Constructions"
+								className="block object-cover object-center w-full h-full rounded-lg"
+								src="/assets/images/clients/ceo-and-friend.jpg"
 								layout="fill"
 							/>
 						</div>
