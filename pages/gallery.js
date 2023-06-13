@@ -183,7 +183,7 @@ function Gallery() {
 							<Image
 								alt="Ifeanyi Nwanchukwu CEO Ify Bros Constructions"
 								className="block object-cover object-center w-full h-full rounded-lg"
-								src="/assets/images/clients/ceo.jpg"
+								src="/assets/images/about/11.jpg"
 								layout="fill"
 							/>
 						</div>
