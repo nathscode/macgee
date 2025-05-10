@@ -8,7 +8,6 @@ import {
 	Quote,
 	User,
 } from "@prisma/client";
-import type { Timestamp, FirestoreDataConverter } from "firebase/firestore";
 import { ISODateString } from "next-auth";
 
 export type CustomUser = {
@@ -119,15 +118,3 @@ export interface ActionResponse<T = any> {
 	status: "success" | "error";
 	data?: T;
 }
-
-// export const productConverter: FirestoreDataConverter<Product> = {
-// 	toFirestore(product) {
-// 		return { ...product };
-// 	},
-// 	fromFirestore(snapshot, options) {
-// 		const { id } = snapshot;
-// 		const data = snapshot.data(options);
-
-// 		return { id, ...data } as Product;
-// 	},
-// };
