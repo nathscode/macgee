@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-	const password = "cook1234";
+	const password = "Global121#";
 	const salt = bcrypt.genSaltSync(10);
 	const hashedPassword = bcrypt.hashSync(password, salt);
 	try {

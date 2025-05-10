@@ -1,11 +1,10 @@
 export const dynamic = "force-dynamic";
+import GeneralButton from "@/components/common/general-button";
 import { Separator } from "@/components/ui/separator";
-import { RiToolsLine } from "react-icons/ri";
-import { TbBulldozer } from "react-icons/tb";
 import { db } from "@/config/db.config";
 import { formatPrice } from "@/lib/utils";
-import Link from "next/link";
-import GeneralButton from "@/components/common/general-button";
+import { RiToolsLine } from "react-icons/ri";
+import { TbBulldozer } from "react-icons/tb";
 
 function formatCurrency(value: number | null | undefined) {
 	if (!value) return "₦0.00";
@@ -27,7 +26,7 @@ export default async function DashboardPage() {
 			where: { productType: "PART" },
 		}),
 	]);
-
+	const totalSalesValue = totalSales._sum.totalAmount || 0;
 	return (
 		<div className="px-8 py-10">
 			<p className="text-2xl md:text-3xl font-bold">Dashboard</p>
@@ -47,7 +46,7 @@ export default async function DashboardPage() {
 						</div>
 						<div>
 							<div className="text-2xl font-bold">
-								{formatPrice(totalSales._sum.totalAmount!.toString())}
+								{formatPrice(totalSalesValue.toString())}
 							</div>
 							<p className="text-xs text-gray-500">0.0% from last month</p>
 						</div>
