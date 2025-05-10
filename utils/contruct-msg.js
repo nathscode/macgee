@@ -1,10 +1,4 @@
 function constructMsg(data, user) {
-	let spec = ""
-
-	for (const info in data.specification) {
-		spec += `<li>${info}: ${data.specification[info]}</li>`
-	}
-
 	const msg = `
         <div>
             <h1>Quotation request</h1>
@@ -13,12 +7,6 @@ function constructMsg(data, user) {
             <ul>
                 <li>Name: ${data.title}</li>
                 <li>Type: ${data.type}</li>
-                <li>DESC: ${data.description}</li>
-                <li>
-                    <h4>Specification</h4>
-                    <ul>${spec}</ul>
-                </li>
-
             </ul>
             <h4>Customer information<h4>
             <ul>
@@ -29,9 +17,9 @@ function constructMsg(data, user) {
 
         </div>
     
-    `
+    `;
 
-	return msg
+	return msg;
 }
 
 function constructContactMsg(data) {
@@ -47,9 +35,9 @@ function constructContactMsg(data) {
             </ul>
 
         </div>
-    `
+    `;
 
-	return msg
+	return msg;
 }
 
-export { constructMsg, constructContactMsg }
+export { constructMsg, constructContactMsg };
