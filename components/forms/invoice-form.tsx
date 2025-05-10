@@ -22,10 +22,10 @@ import { generateRandomNumbers } from "@/lib/backend/utils";
 import { cn } from "@/lib/utils";
 import { InvoiceSchema, InvoiceSchemaInfer } from "@/lib/validators/invoice";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CalendarIcon } from "lucide-react";
+import html2pdf from "html2pdf.js";
+import { CalendarIcon, Trash } from "lucide-react";
 import { useRef } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import { useReactToPrint } from "react-to-print";
 import PrintableComponent from "../PrintableComponent";
 import { Calendar } from "../ui/calendar";
 
@@ -74,20 +74,26 @@ const InvoiceForm = () => {
 		});
 	};
 
-	const reactToPrintFn = useReactToPrint({
-		contentRef: componentRef,
-		documentTitle: `Macgee-Invoice-${invoiceData.invoiceNumber}`,
-	});
-
-	// Print handler function
-	const handlePrint = () => {
-		// Check if the ref is attached to something printable
+	const handleDownloadPDF = async () => {
 		if (!componentRef.current) {
-			console.error("Print component not ready");
+			console.error("Printable component not ready");
 			return;
 		}
 
-		reactToPrintFn();
+		const element = componentRef.current;
+		const opt = {
+			margin: 0.5,
+			filename: `Macgee-Invoice-${invoiceData.invoiceNumber}.pdf`,
+			image: { type: "jpeg", quality: 0.98 },
+			html2canvas: { scale: 2 },
+			jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+		};
+
+		try {
+			await html2pdf().from(element).set(opt).save();
+		} catch (error) {
+			console.error("Error generating PDF:", error);
+		}
 	};
 
 	const formatNumber = (value: string | number) => {
@@ -115,7 +121,10 @@ const InvoiceForm = () => {
 
 							<TabsContent value="items">
 								{itemFields.map((field, index) => (
-									<div key={field.id} className="grid grid-cols-3 gap-4 mb-2">
+									<div
+										key={field.id}
+										className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 items-end"
+									>
 										<FormField
 											control={form.control}
 											name={`items.${index}.item`}
@@ -142,32 +151,42 @@ const InvoiceForm = () => {
 												</FormItem>
 											)}
 										/>
-										<FormField
-											control={form.control}
-											name={`items.${index}.rate`}
-											render={({ field }) => (
-												<FormItem>
-													<FormLabel>Rate</FormLabel>
-													<FormControl>
-														<Input
-															placeholder="Rate"
-															value={
-																field.value ? formatNumber(field.value) : ""
-															}
-															onChange={(e) => {
-																const parsed = parseNumber(e.target.value);
-																form.setValue(
-																	`items.${index}.rate`,
-																	isNaN(parsed) ? 0 : parsed
-																);
-															}}
-															inputMode="numeric"
-														/>
-													</FormControl>
-													<FormMessage />
-												</FormItem>
-											)}
-										/>
+										<div className="flex gap-2">
+											<FormField
+												control={form.control}
+												name={`items.${index}.rate`}
+												render={({ field }) => (
+													<FormItem className="w-full">
+														<FormLabel>Rate</FormLabel>
+														<FormControl>
+															<Input
+																placeholder="Rate"
+																value={
+																	field.value ? formatNumber(field.value) : ""
+																}
+																onChange={(e) => {
+																	const parsed = parseNumber(e.target.value);
+																	form.setValue(
+																		`items.${index}.rate`,
+																		isNaN(parsed) ? 0 : parsed
+																	);
+																}}
+																inputMode="numeric"
+															/>
+														</FormControl>
+														<FormMessage />
+													</FormItem>
+												)}
+											/>
+											{/* Remove Button */}
+											<button
+												type="button"
+												onClick={() => remove(index)}
+												className="text-red-500 text-xs h-fit px-3 py-2 border border-red-500 rounded hover:bg-red-50 mt-6"
+											>
+												<Trash className="size-4" />
+											</button>
+										</div>
 									</div>
 								))}
 
@@ -343,7 +362,7 @@ const InvoiceForm = () => {
 			</div>
 			<div className="w-full md:w-1/2 md:pr-5 mb-5 md:mb-0">
 				<h4>Preview</h4>
-				<Button onClick={handlePrint} className="mt-4">
+				<Button onClick={handleDownloadPDF} className="mt-4">
 					Print Invoice
 				</Button>
 
