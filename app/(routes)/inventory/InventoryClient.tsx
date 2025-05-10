@@ -166,6 +166,7 @@ const InventoryClient = () => {
 						</TabsContent>
 					</Container>
 				</Tabs>
+				{/* @ts-ignore */}
 				{pagination && pagination.hasNextPage && (
 					<div className="flex items-center justify-center mt-10 mb-5">
 						<Pagination

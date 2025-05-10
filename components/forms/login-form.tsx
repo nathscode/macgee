@@ -1,11 +1,4 @@
 "use client";
-import React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios, { AxiosError } from "axios";
-import { signIn } from "next-auth/react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import placeholderImage from "/public/placeholder-image.png";
 import {
 	Form,
 	FormControl,
@@ -17,14 +10,20 @@ import {
 import { Input } from "@/components/ui/input";
 import useMount from "@/hooks/use-mount";
 import { LoginSchema, LoginSchemaInfer } from "@/lib/validators/auth";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
 import { Eye, EyeOff } from "lucide-react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useToast } from "../ui/use-toast";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import LoadingButton from "../common/loading-button";
 import { buttonVariants } from "../ui/button";
+import { useToast } from "../ui/use-toast";
+import placeholderImage from "/public/placeholder-image.png";
 
 type Props = {};
 

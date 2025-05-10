@@ -128,7 +128,7 @@ const PartForm = ({ product }: Props) => {
 			form.setValue("minimumStock", product?.minimumStock!);
 			form.setValue("manufacturer", product?.manufacturer!);
 		}
-	}, [product]);
+	}, [product, form]);
 
 	const { mutate, isPending } = useMutation({
 		mutationFn: async (formData: FormData) => {

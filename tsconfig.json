@@ -32,7 +32,6 @@
 		"components/Login.tsx",
 		"actions/auth/sign-in.js",
 		"components/Dropzone.tsx",
-		"components/common/custom-button.jsx",
 		"components/dashboard/NavBar.jsx"
 	],
 	"exclude": ["node_modules"]
