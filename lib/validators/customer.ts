@@ -15,3 +15,11 @@ export const CustomerSelectSchema = z.object({
 });
 
 export type CustomerSelectSchemaInfer = z.infer<typeof CustomerSelectSchema>;
+
+export const ContactSchema = z.object({
+	fullname: z.string().min(1, "Full name is required"),
+	email: z.string().email("Invalid email address"),
+	message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+export type ContactSchemaInfer = z.infer<typeof ContactSchema>;
