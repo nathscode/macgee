@@ -5,11 +5,12 @@ import ComponentToPrint from "./InvoicePreview";
 interface PrintableComponentProps {
 	items: Item[];
 	invoiceData: invoiceDataType;
+	isProforma: boolean;
 }
 
 // Properly handled ref forwarding
 const PrintableComponent = forwardRef<HTMLDivElement, PrintableComponentProps>(
-	({ items, invoiceData }, ref) => {
+	({ items, invoiceData, isProforma }, ref) => {
 		// Create a div that directly receives the ref
 		return (
 			<div ref={ref}>
@@ -22,6 +23,7 @@ const PrintableComponent = forwardRef<HTMLDivElement, PrintableComponentProps>(
 					invoiceNumber={invoiceData.invoiceNumber || ""}
 					address={invoiceData.address || ""}
 					city={invoiceData.city || ""}
+					isProforma={isProforma}
 				/>
 			</div>
 		);

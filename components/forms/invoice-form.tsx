@@ -24,13 +24,20 @@ import { InvoiceSchema, InvoiceSchemaInfer } from "@/lib/validators/invoice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import html2pdf from "html2pdf.js";
 import { CalendarIcon, Trash } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import PrintableComponent from "../PrintableComponent";
 import { Calendar } from "../ui/calendar";
+import { Label } from "../ui/label";
+import { Switch } from "../ui/switch";
 
 const InvoiceForm = () => {
 	const { setItems, items, invoiceData, setInvoiceData } = useInvoiceStore();
+	const [check, setCheck] = useState<boolean>(false);
+	const [dateOpen, setDateOpen] = useState(false);
+	const [dueDateOpen, setDueDateOpen] = useState(false);
+
+	const handleSwitchChange = () => setCheck((prev) => !prev);
 
 	// Create a stable ref for the printable component
 	const componentRef = useRef<HTMLDivElement>(null);
@@ -40,12 +47,15 @@ const InvoiceForm = () => {
 		defaultValues: {
 			items: [{ item: "", quantity: "", rate: 0 }],
 			name: "",
-			subject: "",
+			subject: check
+				? "We hereby write you on the quotation of a pro forma invoice"
+				: "",
 			invoiceNumber: newInvoiceTitle,
 			invoiceDate: new Date(),
 			dueDate: new Date(),
 			address: "",
 			city: "",
+			isProforma: false,
 		},
 	});
 
@@ -67,10 +77,11 @@ const InvoiceForm = () => {
 			name: values.name,
 			subject: values.subject,
 			invoiceDate: values.invoiceDate.toDateString(),
-			dueDate: values.dueDate.toDateString(),
+			dueDate: values.dueDate?.toDateString() || undefined,
 			address: values.address,
 			city: values.city,
 			invoiceNumber: newInvoiceTitle,
+			isProforma: values.isProforma,
 		});
 	};
 
@@ -200,6 +211,31 @@ const InvoiceForm = () => {
 								</div>
 							</TabsContent>
 							<TabsContent value="address">
+								<div className="mb-5">
+									<FormField
+										control={form.control}
+										name="isProforma"
+										render={({ field }) => (
+											<FormItem>
+												<FormLabel>Invoice Type</FormLabel>
+												<FormControl>
+													<div className="flex items-center space-x-2">
+														<Switch
+															id="proforma"
+															checked={check}
+															onCheckedChange={handleSwitchChange}
+															{...field}
+														/>
+														<Label htmlFor="proforma">
+															{check ? "Proforma" : "Invoice"}
+														</Label>
+													</div>
+												</FormControl>
+												<FormMessage />
+											</FormItem>
+										)}
+									/>
+								</div>
 								<FormField
 									control={form.control}
 									name="name"
@@ -213,21 +249,23 @@ const InvoiceForm = () => {
 										</FormItem>
 									)}
 								/>
-								<div className="block  w-full my-4">
-									<FormField
-										control={form.control}
-										name="subject"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Subject</FormLabel>
-												<FormControl>
-													<Input placeholder="subject" {...field} />
-												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								</div>
+								{!check && (
+									<div className="block  w-full my-4">
+										<FormField
+											control={form.control}
+											name="subject"
+											render={({ field }) => (
+												<FormItem>
+													<FormLabel>Subject</FormLabel>
+													<FormControl>
+														<Input placeholder="subject" {...field} />
+													</FormControl>
+													<FormMessage />
+												</FormItem>
+											)}
+										/>
+									</div>
+								)}
 								<div className="flex flex-wrap justify-between w-full my-4">
 									<div className="w-full md:w-1/2 md:pr-5 mb-5 md:mb-0">
 										<FormField
@@ -236,11 +274,12 @@ const InvoiceForm = () => {
 											render={({ field }) => (
 												<FormItem className="flex flex-col">
 													<FormLabel>Invoice Date</FormLabel>
-													<Popover>
+													<Popover open={dateOpen} onOpenChange={setDateOpen}>
 														<PopoverTrigger asChild>
 															<FormControl>
 																<Button
-																	variant={"outline"}
+																	variant="outline"
+																	onClick={() => setDateOpen((prev) => !prev)}
 																	className={cn(
 																		"w-full pl-3 text-left font-normal",
 																		!field.value && "text-muted-foreground"
@@ -262,7 +301,10 @@ const InvoiceForm = () => {
 															<Calendar
 																mode="single"
 																selected={field.value}
-																onSelect={field.onChange}
+																onSelect={(date) => {
+																	field.onChange(date);
+																	setDateOpen(false); // Close the popover on date select
+																}}
 																disabled={(date) =>
 																	date < new Date("1900-01-01")
 																}
@@ -275,52 +317,63 @@ const InvoiceForm = () => {
 											)}
 										/>
 									</div>
-									<div className="w-full md:w-1/2 md:pr-5 mb-5 md:mb-0">
-										<FormField
-											control={form.control}
-											name="dueDate"
-											render={({ field }) => (
-												<FormItem className="flex flex-col">
-													<FormLabel>Due Date</FormLabel>
-													<Popover>
-														<PopoverTrigger asChild>
-															<FormControl>
-																<Button
-																	variant={"outline"}
-																	className={cn(
-																		"w-full pl-3 text-left font-normal",
-																		!field.value && "text-muted-foreground"
-																	)}
-																>
-																	{field.value ? (
-																		`${field.value.toDateString()} ${field.value.toLocaleTimeString()}`
-																	) : (
-																		<span>Pick a date</span>
-																	)}
-																	<CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-																</Button>
-															</FormControl>
-														</PopoverTrigger>
-														<PopoverContent
-															className="w-auto p-0"
-															align="start"
+									{check && (
+										<div className="w-full md:w-1/2 md:pr-5 mb-5 md:mb-0">
+											<FormField
+												control={form.control}
+												name="dueDate"
+												render={({ field }) => (
+													<FormItem className="flex flex-col">
+														<FormLabel>Due Date</FormLabel>
+														<Popover
+															open={dueDateOpen}
+															onOpenChange={setDueDateOpen}
 														>
-															<Calendar
-																mode="single"
-																selected={field.value}
-																onSelect={field.onChange}
-																disabled={(date) =>
-																	date < new Date("1900-01-01")
-																}
-																initialFocus
-															/>
-														</PopoverContent>
-													</Popover>
-													<FormMessage />
-												</FormItem>
-											)}
-										/>
-									</div>
+															<PopoverTrigger asChild>
+																<FormControl>
+																	<Button
+																		variant="outline"
+																		onClick={() =>
+																			setDueDateOpen((prev) => !prev)
+																		}
+																		className={cn(
+																			"w-full pl-3 text-left font-normal",
+																			!field.value && "text-muted-foreground"
+																		)}
+																	>
+																		{field.value ? (
+																			`${field.value.toDateString()} ${field.value.toLocaleTimeString()}`
+																		) : (
+																			<span>Pick a date</span>
+																		)}
+																		<CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+																	</Button>
+																</FormControl>
+															</PopoverTrigger>
+															<PopoverContent
+																className="w-auto p-0"
+																align="start"
+															>
+																<Calendar
+																	mode="single"
+																	selected={field.value}
+																	onSelect={(date) => {
+																		field.onChange(date);
+																		setDueDateOpen(false); // Close on date select
+																	}}
+																	disabled={(date) =>
+																		date < new Date("1900-01-01")
+																	}
+																	initialFocus
+																/>
+															</PopoverContent>
+														</Popover>
+														<FormMessage />
+													</FormItem>
+												)}
+											/>
+										</div>
+									)}
 								</div>
 								<div className="w-full my-2">
 									<FormField
@@ -371,6 +424,7 @@ const InvoiceForm = () => {
 					invoiceData={invoiceData}
 					items={items}
 					ref={componentRef}
+					isProforma={check}
 				/>
 			</div>
 		</div>

@@ -106,7 +106,7 @@ const PartForm = ({ product }: Props) => {
 		defaultValues: {
 			title: "",
 			description: "",
-			price: "",
+			price: "0",
 			condition: "",
 			productType: "",
 			currentStock: 0,
@@ -204,7 +204,8 @@ const PartForm = ({ product }: Props) => {
 			formData.append("images", file);
 		});
 
-		mutate(formData);
+		// mutate(formData);
+		console.log({ formData });
 	};
 
 	const onFormError: SubmitErrorHandler<PartSchemaInfer> = (e: any) => {

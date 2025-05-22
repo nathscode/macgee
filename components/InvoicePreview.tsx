@@ -13,6 +13,7 @@ type Props = {
 	address: string;
 	city: string;
 	items: Item[];
+	isProforma: boolean;
 };
 
 const ComponentToPrint = forwardRef<HTMLDivElement, Props>((props, ref) => {
@@ -25,6 +26,7 @@ const ComponentToPrint = forwardRef<HTMLDivElement, Props>((props, ref) => {
 		address,
 		city,
 		items,
+		isProforma,
 	} = props;
 
 	const subtotal = items.reduce(
@@ -43,7 +45,7 @@ const ComponentToPrint = forwardRef<HTMLDivElement, Props>((props, ref) => {
 					<img
 						src="/assets/images/logo/macgee.jpeg"
 						alt="logo"
-						className="w-[100px] h-[80px] object-contain"
+						className="w-[100px] h-[70px] object-contain"
 					/>
 				</div>
 
@@ -71,10 +73,12 @@ const ComponentToPrint = forwardRef<HTMLDivElement, Props>((props, ref) => {
 								<span className="mr-2">Invoice Date:</span>
 								{formatDate(invoiceDate)}
 							</p>
-							<p className="m-0">
-								<span className="mr-2">Due Date:</span>
-								{formatDate(dueDate)}
-							</p>
+							{isProforma && (
+								<p className="m-0">
+									<span className="mr-2">Due Date:</span>
+									{formatDate(dueDate)}
+								</p>
+							)}
 						</div>
 					</div>
 				</div>
@@ -85,7 +89,12 @@ const ComponentToPrint = forwardRef<HTMLDivElement, Props>((props, ref) => {
 					<p className="m-0 font-semibold pt-1 capitalize">{name}</p>
 					<p className="m-0">{address}</p>
 					<p className="m-0 capitalize">{city}</p>
-					<p className="m-0 mt-4">Subject: {subject}</p>
+					<p className="m-0 mt-4">
+						Subject:{" "}
+						{isProforma
+							? "We hereby write you on the quotation of a pro forma invoice"
+							: subject}
+					</p>
 				</div>
 
 				{/* Items Table */}
@@ -134,11 +143,22 @@ const ComponentToPrint = forwardRef<HTMLDivElement, Props>((props, ref) => {
 						</div>
 					</div>
 				</div>
+				{isProforma && (
+					<div className="text-left mt-10 text-xs text-gray-600">
+						<p className="font-light mb-1">
+							Please, make the payment to the following:
+						</p>
 
+						<p className="font-bold m-0">
+							MacGee Trucks and Equipment <br /> 1017560248 <br /> ZENITH BANK
+						</p>
+					</div>
+				)}
 				{/* Footer */}
 				<div className="text-left mt-10 text-xs text-gray-600">
-					<p className="font-light m-0">Note:</p>
-					<p className="font-light m-0 mt-1">Thank you for your business!</p>
+					<p className="font-light m-0 mt-1">
+						Thank you, we hope for a long-term business relationship!
+					</p>
 				</div>
 			</div>
 		</div>

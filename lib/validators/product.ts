@@ -15,7 +15,7 @@ export const ProductSchema = z.object({
 	model: z.string().min(1, { message: "model is required" }),
 	year: z.string().min(1, { message: "year is required" }),
 	condition: z.string().min(1, { message: "condition is required" }),
-	hours: z.number().optional(),
+	hours: z.string().optional(),
 	specifications: z.string().optional(),
 	isBucket: z.boolean().default(false),
 	isExterior: z.boolean().default(false),
@@ -36,7 +36,7 @@ export const PartSchema = z.object({
 	title: z.string().min(1, { message: "Title is required" }),
 	description: z.string().optional(),
 	productType: z.string().min(1, { message: "product Type is required" }),
-	price: z.string().refine((val) => !isNaN(parseFloat(val)), {
+	price: z.string().min(1, {
 		message: "Price must be a valid number",
 	}),
 	condition: z.string().min(1, { message: "condition is required" }),

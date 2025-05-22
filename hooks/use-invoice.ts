@@ -8,12 +8,13 @@ export interface Item {
 
 export interface invoiceDataType {
 	name: string;
-	subject: string;
+	subject?: string;
 	invoiceDate: string;
-	dueDate: string;
+	dueDate?: string;
 	invoiceNumber: string;
 	address: string;
 	city: string;
+	isProforma: boolean;
 }
 
 interface InvoiceState {
@@ -33,6 +34,7 @@ export const useInvoiceStore = create<InvoiceState>((set) => ({
 		invoiceNumber: "",
 		address: "",
 		city: "",
+		isProforma: false,
 	},
 	setItems: (items) => set({ items }),
 	setInvoiceData: (invoiceData) => set({ invoiceData }),

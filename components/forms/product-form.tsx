@@ -67,7 +67,7 @@ const ProductForm = ({ product }: Props) => {
 			model: "",
 			year: "",
 			condition: "",
-			hours: 0,
+			hours: "",
 			specifications: "",
 			isBucket: false,
 			isExterior: false,
@@ -88,7 +88,7 @@ const ProductForm = ({ product }: Props) => {
 			form.setValue("model", product?.model!);
 			form.setValue("year", product?.year!);
 			form.setValue("condition", product?.condition!);
-			form.setValue("hours", Number(product?.hours!));
+			form.setValue("hours", String(product?.hours!));
 			form.setValue("specifications", String(product?.specifications!));
 			form.setValue("isBucket", product?.isBucket!);
 			form.setValue("isExterior", product?.isExterior!);
@@ -178,7 +178,7 @@ const ProductForm = ({ product }: Props) => {
 				model: values.model || product.model!,
 				year: values.year || product.year!,
 				condition: values.condition || product.condition!,
-				hours: Number(values.hours || product.hours!),
+				hours: String(values.hours || product.hours!),
 				specifications:
 					values.specifications || String(product.specifications!),
 				isBucket: values.isBucket || product.isBucket!,
@@ -186,7 +186,8 @@ const ProductForm = ({ product }: Props) => {
 				isRops: values.isRops || product.isRops!,
 			});
 		} else {
-			mutate(values);
+			// mutate(values);
+			console.log({ values });
 		}
 	};
 
