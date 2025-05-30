@@ -186,8 +186,7 @@ const ProductForm = ({ product }: Props) => {
 				isRops: values.isRops || product.isRops!,
 			});
 		} else {
-			// mutate(values);
-			console.log({ values });
+			mutate(values);
 		}
 	};
 

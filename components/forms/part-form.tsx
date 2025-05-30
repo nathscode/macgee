@@ -204,8 +204,7 @@ const PartForm = ({ product }: Props) => {
 			formData.append("images", file);
 		});
 
-		// mutate(formData);
-		console.log({ formData });
+		mutate(formData);
 	};
 
 	const onFormError: SubmitErrorHandler<PartSchemaInfer> = (e: any) => {
