@@ -68,6 +68,7 @@ const ProductForm = ({ product }: Props) => {
 			year: "",
 			condition: "",
 			hours: "",
+			engineNumber: "",
 			specifications: "",
 			isBucket: false,
 			isExterior: false,
@@ -89,6 +90,7 @@ const ProductForm = ({ product }: Props) => {
 			form.setValue("year", product?.year!);
 			form.setValue("condition", product?.condition!);
 			form.setValue("hours", String(product?.hours!));
+			form.setValue("engineNumber", String(product?.engineNumber!));
 			form.setValue("specifications", String(product?.specifications!));
 			form.setValue("isBucket", product?.isBucket!);
 			form.setValue("isExterior", product?.isExterior!);
@@ -109,6 +111,7 @@ const ProductForm = ({ product }: Props) => {
 			year,
 			condition,
 			hours,
+			engineNumber,
 			specifications,
 			isBucket,
 			isExterior,
@@ -128,6 +131,7 @@ const ProductForm = ({ product }: Props) => {
 				year,
 				condition,
 				hours,
+				engineNumber,
 				specifications,
 				isBucket,
 				isExterior,
@@ -179,6 +183,7 @@ const ProductForm = ({ product }: Props) => {
 				year: values.year || product.year!,
 				condition: values.condition || product.condition!,
 				hours: String(values.hours || product.hours!),
+				engineNumber: String(values.engineNumber || product.engineNumber!),
 				specifications:
 					values.specifications || String(product.specifications!),
 				isBucket: values.isBucket || product.isBucket!,
@@ -336,7 +341,7 @@ const ProductForm = ({ product }: Props) => {
 						</div>
 					</div>
 					<div className="flex flex-wrap justify-between w-full ">
-						<div className="w-full md:w-1/3 md:pr-5 mb-5 md:mb-0">
+						<div className="w-full md:w-1/4 md:pr-5 mb-5 md:mb-0">
 							<FormField
 								control={form.control}
 								name="currentStock"
@@ -357,7 +362,7 @@ const ProductForm = ({ product }: Props) => {
 								)}
 							/>
 						</div>
-						<div className="w-full md:w-1/3 md:pr-5 mb-5 md:mb-0">
+						<div className="w-full md:w-1/4 md:pr-5 mb-5 md:mb-0">
 							<FormField
 								control={form.control}
 								name="minimumStock"
@@ -378,7 +383,7 @@ const ProductForm = ({ product }: Props) => {
 								)}
 							/>
 						</div>
-						<div className="w-full md:w-1/3 md:pr-5 mb-5 md:mb-0">
+						<div className="w-full md:w-1/4 md:pr-5 mb-5 md:mb-0">
 							<FormField
 								control={form.control}
 								name="year"
@@ -387,6 +392,27 @@ const ProductForm = ({ product }: Props) => {
 										<FormLabel className="font-semibold">Year</FormLabel>
 										<FormControl>
 											<Input type="text" placeholder="Year" {...field} />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+						<div className="md:w-1/4 md:pr-5 mb-5 md:mb-0">
+							<FormField
+								control={form.control}
+								name="engineNumber"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="font-semibold">
+											Engine Number
+										</FormLabel>
+										<FormControl>
+											<Input
+												type="text"
+												placeholder="Engine Number"
+												{...field}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>

@@ -2,7 +2,6 @@ import fetchProductBySlug from "@/actions/fetchProductBySlug";
 import getCurrentUser from "@/actions/getCurrentUser";
 import NotFound from "@/app/not-found";
 import ProductForm from "@/components/forms/product-form";
-import { db } from "@/config/db.config";
 import { RoleType } from "@prisma/client";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";

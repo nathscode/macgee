@@ -2,7 +2,10 @@ import * as z from "zod";
 
 export const ProductSchema = z.object({
 	title: z.string().min(1, { message: "Title is required" }),
-	description: z.string().optional(),
+	description: z
+		.string()
+		.optional()
+		.transform((v) => v || undefined),
 	category: z.string().min(1, { message: "category is required" }),
 	productType: z.string().min(1, { message: "product Type is required" }),
 	currentStock: z.coerce
@@ -15,8 +18,18 @@ export const ProductSchema = z.object({
 	model: z.string().min(1, { message: "model is required" }),
 	year: z.string().min(1, { message: "year is required" }),
 	condition: z.string().min(1, { message: "condition is required" }),
-	hours: z.string().optional(),
-	specifications: z.string().optional(),
+	hours: z
+		.string()
+		.optional()
+		.transform((v) => v || undefined),
+	engineNumber: z
+		.string()
+		.optional()
+		.transform((v) => v || undefined),
+	specifications: z
+		.string()
+		.optional()
+		.transform((v) => v || undefined),
 	isBucket: z.boolean().default(false),
 	isExterior: z.boolean().default(false),
 	isRops: z.boolean().default(false),

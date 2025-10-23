@@ -147,6 +147,7 @@ model Product {
   // Equipment specific fields
   manufacturer    String?        @db.VarChar(255)
   model           String?        @db.VarChar(255)
+  engineNumber    String?        @db.VarChar(255)
   year            String?        @db.VarChar(4)
   condition       String?        @db.VarChar(100)
   hours           Int?

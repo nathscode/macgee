@@ -2,7 +2,7 @@ export const site = {
 	name: "Macgeeequipment",
 	address: "Km 6, Osubi-airport road, Osubi",
 	state: "Delta",
-	domain: "macgeeequipment.come",
+	domain: "macgeeequipment.com",
 	handle: "@macgeeequipment",
 	email: "vanessa@macgeeequipment.com",
 	url: "https://macgeeequipment.com",

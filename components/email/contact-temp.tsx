@@ -21,7 +21,7 @@ export default function ContactTemp({
 	email = ``,
 	message = ``,
 }: ContactTempProps) {
-	const previewText = `Verify your email.`;
+	const previewText = `Contact from ${fullname} (${email})`;
 
 	return (
 		<Html>

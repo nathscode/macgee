@@ -24,6 +24,7 @@ export const categories = [
 	"DUMPER",
 	"ROLLER",
 	"LOADER",
+	"TRUCK",
 ];
 export const productTypes = ["TRUCK", "PART"];
 export const conditionTypes = ["NEW", "USED"];
