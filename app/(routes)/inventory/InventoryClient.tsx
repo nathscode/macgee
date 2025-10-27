@@ -133,11 +133,12 @@ const InventoryClient = () => {
 									<option value="EXCAVATOR">Excavators</option>
 									<option value="DUMPER">Dumper</option>
 									<option value="ROLLER">Roller</option>
+									<option value="TRUCK">Truck</option>
 									<option value="SLEEPER">Sleeper</option>
 									<option value="LOADER">Wheel Loaders</option>
 								</select>
 							</div>
-							<ul className="inventory__list w-full">
+							<ul className="flex flex-wrap gap-4 justify-start items-center w-full">
 								{displayedInventoryTrucks.length > 0 ? (
 									displayedInventoryTrucks.map((inventory) => (
 										<ProductCard key={inventory.id} inventory={inventory} />
@@ -151,7 +152,7 @@ const InventoryClient = () => {
 							</ul>
 						</TabsContent>
 						<TabsContent value="parts">
-							<ul className="inventory__list w-full py-10">
+							<ul className="flex flex-wrap gap-4 justify-start items-center w-full py-10">
 								{productParts.length > 0 ? (
 									productParts.map((inventory) => (
 										<PartCard key={inventory.id} inventory={inventory} />

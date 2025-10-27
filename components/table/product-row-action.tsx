@@ -46,6 +46,14 @@ export function ProductRowActions<TData>({
 						Edit
 					</Link>
 				</DropdownMenuItem>
+				<DropdownMenuItem>
+					{/* @ts-ignore */}
+					<Link
+						href={`/dashboard/inventories/product/${row.original.slug}/upload`}
+					>
+						Edit Upload
+					</Link>
+				</DropdownMenuItem>
 				<DropdownMenuItem asChild>
 					<ActivateButton
 						slug={row.original.slug!}

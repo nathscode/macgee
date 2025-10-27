@@ -37,7 +37,7 @@ const PartCard = ({ inventory }: Props) => {
 				animate="animate"
 				// exit='exit'
 				key={inventory.id}
-				className="relative focus:outline-none mx-2 h-full w-full sm:w-[350px] xl:mb-0 mb-8 group"
+				className="relative focus:outline-none mx-2 h-full w-full sm:w-[350px] mb-8 group"
 			>
 				<Link
 					href={`/inventory/${inventory.slug}`}
@@ -51,7 +51,7 @@ const PartCard = ({ inventory }: Props) => {
 							src={srcImage!}
 							alt={inventory.title}
 							layout="fill"
-							className="w-full h-full focus:outline-none"
+							className="w-full h-full focus:outline-none object-cover"
 						/>
 					</div>
 				</Link>

@@ -13,6 +13,7 @@ export const getAllProducts = async (): Promise<
 		const products = await db.product.findMany({
 			where: { isActive: true },
 			orderBy: { createdAt: "desc" },
+			take: 9,
 			include: {
 				medias: true,
 			},
