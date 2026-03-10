@@ -1,20 +1,20 @@
-import { db } from "@/config/db.config";
-import { NextRequest, NextResponse } from "next/server";
-import { getRandomNumber, handlerNativeResponse } from "@/lib/backend/utils";
 import getCurrentUser from "@/actions/getCurrentUser";
+import { newS3 } from "@/actions/getS3Client";
+import { db } from "@/config/db.config";
 import { CustomError } from "@/lib/backend/errors";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { s3 } from "@/actions/getS3Client";
 import { getLogger } from "@/lib/backend/logger";
+import { getRandomNumber, handlerNativeResponse } from "@/lib/backend/utils";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { NextRequest, NextResponse } from "next/server";
 
 const logger = getLogger();
-const Bucket = process.env.TEBI_BUCKET_NAME;
+const Bucket = process.env.S3_BUCKET_NAME;
 
 export async function PATCH(req: NextRequest) {
 	if (req.method !== "PATCH") {
 		return handlerNativeResponse(
 			{ status: 405, errors: { message: "Method not allowed" } },
-			405
+			405,
 		);
 	}
 
@@ -39,7 +39,7 @@ export async function PATCH(req: NextRequest) {
 			logger.warn("Invalid input data: Missing slug or images");
 			return handlerNativeResponse(
 				{ status: 400, errors: { message: "Invalid input data" } },
-				400
+				400,
 			);
 		}
 
@@ -49,7 +49,7 @@ export async function PATCH(req: NextRequest) {
 			logger.warn(`Product with slug '${slug}' not found`);
 			return handlerNativeResponse(
 				{ status: 404, errors: { message: "Product not found" } },
-				404
+				404,
 			);
 		}
 
@@ -70,17 +70,17 @@ export async function PATCH(req: NextRequest) {
 						ContentType: image.type,
 					};
 
-					await s3.send(new PutObjectCommand(fileParams));
+					await newS3.send(new PutObjectCommand(fileParams));
 
 					return {
-						url: `${process.env.NEXT_PUBLIC_TEBI_URL}/uploads/${filename}`,
+						url: `${process.env.NEXT_PUBLIC_S3_URL}/uploads/${filename}`,
 						productId: product.id,
 					};
 				} catch (err) {
 					logger.error(`Image upload failed for ${image.name}: ${err}`);
 					return null;
 				}
-			})
+			}),
 		);
 
 		// 5. **Filter Out Failed Uploads**
@@ -89,7 +89,7 @@ export async function PATCH(req: NextRequest) {
 			logger.error("No images were uploaded successfully.");
 			return handlerNativeResponse(
 				{ status: 500, message: "Image upload failed. Try again." },
-				500
+				500,
 			);
 		}
 
@@ -101,12 +101,12 @@ export async function PATCH(req: NextRequest) {
 						url: img!.url,
 						productId: img!.productId,
 					},
-				})
-			)
+				}),
+			),
 		);
 
 		logger.info(
-			`Successfully uploaded ${validImages.length} images for product ${slug}`
+			`Successfully uploaded ${validImages.length} images for product ${slug}`,
 		);
 
 		return NextResponse.json({ status: "success", slug });

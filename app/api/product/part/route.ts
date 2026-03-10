@@ -1,10 +1,11 @@
 import getCurrentUser from "@/actions/getCurrentUser";
+import { newS3 } from "@/actions/getS3Client";
 import { db } from "@/config/db.config";
 import { SKUGenerator } from "@/config/sku";
 import { CustomError } from "@/lib/backend/errors";
+import { getLogger } from "@/lib/backend/logger";
 import { getRandomNumber, handlerNativeResponse } from "@/lib/backend/utils";
-import { PartSchema, PartSchemaInfer } from "@/lib/validators/product";
-import { ApiResponse } from "@/types";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { NextRequest, NextResponse } from "next/server";
 import slugify from "slugify";
 import {
@@ -12,12 +13,9 @@ import {
 	generateUniqueSlug,
 	handleError,
 } from "../route";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { s3 } from "@/actions/getS3Client";
-import { getLogger } from "@/lib/backend/logger";
 
 const logger = getLogger();
-const Bucket = process.env.TEBI_BUCKET_NAME;
+const Bucket = process.env.S3_BUCKET_NAME;
 export async function POST(req: NextRequest) {
 	try {
 		// 1. Authentication check
@@ -55,7 +53,7 @@ export async function POST(req: NextRequest) {
 						message: "Missing required fields",
 					},
 				},
-				400
+				400,
 			);
 		}
 		// 4. Process product type
@@ -99,13 +97,13 @@ export async function POST(req: NextRequest) {
 						Body: buffer,
 						ContentType: image.type,
 					};
-					await s3.send(new PutObjectCommand(fileParams));
+					await newS3.send(new PutObjectCommand(fileParams));
 
 					return {
-						url: `${process.env.NEXT_PUBLIC_TEBI_URL}/uploads/${filename}`,
+						url: `${process.env.NEXT_PUBLIC_S3_URL}/uploads/${filename}`,
 						productId: newProduct.id,
 					};
-				})
+				}),
 			);
 
 			if (uploadedImages.length > 0) {

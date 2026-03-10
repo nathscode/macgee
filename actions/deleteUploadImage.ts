@@ -4,15 +4,13 @@ import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { revalidatePath } from "next/cache";
 import getCurrentUser from "./getCurrentUser";
 
-import { s3 } from "@/actions/getS3Client";
+import { newS3, tebiS3 } from "@/actions/getS3Client";
 
-import { RoleType } from "@prisma/client";
 import {
 	UploadEditSchema,
 	UploadEditSchemaInfer,
 } from "@/lib/validators/product";
-
-const Bucket = process.env.TEBI_BUCKET_NAME;
+import { RoleType } from "@prisma/client";
 
 export async function deleteUploadImage(values: UploadEditSchemaInfer) {
 	const session = await getCurrentUser();
@@ -47,13 +45,33 @@ export async function deleteUploadImage(values: UploadEditSchemaInfer) {
 		});
 
 		if (!product) {
-			return { message: "Property not found." };
+			return { message: "product not found." };
 		}
 		const media = await db.media.findFirst({
 			where: { url: url },
 		});
 		if (!media) {
 			return { message: "Media url not found." };
+		}
+
+		const isNewProvider = url.includes("de-zlg1.safes3.com");
+		const isTebiProvider = url.includes("s3.tebi.io");
+
+		let activeS3Client;
+		let activeBucket;
+
+		if (isNewProvider) {
+			activeS3Client = newS3;
+			activeBucket = process.env.S3_BUCKET_NAME;
+		} else if (isTebiProvider) {
+			activeS3Client = tebiS3;
+			activeBucket = process.env.TEBI_BUCKET_NAME;
+		} else {
+			return {
+				status: "error",
+				message: "Unknown image provider.",
+				data: null,
+			};
 		}
 
 		const filename = url.split("/").pop();
@@ -65,12 +83,12 @@ export async function deleteUploadImage(values: UploadEditSchemaInfer) {
 		}
 
 		const params = {
-			Bucket: Bucket,
+			Bucket: activeBucket,
 			Key: `uploads/${filename}`,
 		};
 
 		const command = new DeleteObjectCommand(params);
-		await s3.send(command);
+		await activeS3Client.send(command);
 
 		revalidatePath(`dashboard/inventories/product/${product.slug}/upload`);
 		return { message: "Image deleted successfully." };
