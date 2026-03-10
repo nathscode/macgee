@@ -4,14 +4,9 @@ const nextConfig = {
 	swcMinify: true,
 	images: {
 		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "s3.tebi.io",
-			},
-			{
-				protocol: "https",
-				hostname: "i.ibb.co",
-			},
+			{ protocol: "https", hostname: "s3.tebi.io" },
+			{ protocol: "https", hostname: "de-zlg1.safes3.com" },
+			{ protocol: "https", hostname: "i.ibb.co" },
 		],
 	},
 	eslint: {

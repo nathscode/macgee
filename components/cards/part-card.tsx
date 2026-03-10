@@ -4,15 +4,25 @@ import { fadeMoveInTop } from "@/utils/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import QuoteModal from "../modals/QuoteModal";
 
 type Props = {
 	inventory: ProductWithOutUser;
 };
+const FALLBACK_IMAGE = "/placeholder-image.png";
 
 const PartCard = ({ inventory }: Props) => {
 	const [isOpen, setIsOpen] = useState(false);
+
+	const initialSrc = inventory.medias?.[0]?.url || FALLBACK_IMAGE;
+
+	const [imgSrc, setImgSrc] = useState<string>(initialSrc);
+
+	useEffect(() => {
+		setImgSrc(inventory.medias?.[0]?.url || FALLBACK_IMAGE);
+	}, [inventory]);
+
 	const handleClose = useCallback(() => {
 		setIsOpen(false);
 	}, []);
@@ -24,10 +34,6 @@ const PartCard = ({ inventory }: Props) => {
 		setIsOpen(true);
 	}, []);
 
-	const srcImage =
-		inventory.medias?.length > 0
-			? inventory.medias[0].url
-			: "/placeholder-image.png";
 	const productDetails = `${inventory.title} - ${inventory.manufacturer}`;
 	return (
 		<>
@@ -48,8 +54,12 @@ const PartCard = ({ inventory }: Props) => {
 					</span>
 					<div className="relative flex items-center justify-center w-full sm:w-[350px] h-[220px] transition ">
 						<Image
-							src={srcImage!}
-							alt={inventory.title}
+							src={imgSrc}
+							alt={inventory.title || "Inventory image"}
+							sizes="80px"
+							onError={() => {
+								setImgSrc(FALLBACK_IMAGE);
+							}}
 							layout="fill"
 							className="w-full h-full focus:outline-none object-cover"
 						/>
